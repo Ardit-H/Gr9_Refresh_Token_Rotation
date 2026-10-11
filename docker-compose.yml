@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  # Keycloak, Ory Hydra and Postgres will be added in Phase 4.
