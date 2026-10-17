@@ -1,0 +1,9 @@
+# Main security experiment: every strategy x scenario, N trials each.
+name: main
+trials: 200
+backend: memory            # memory | redis
+redis_url: redis://localhost:6379/0
+strategies: [static, naive_rotation, atomic_rotation]
+scenarios: [sequential_replay, concurrent_race]
+# Widening the naive check/use gap (seconds); applies to naive_rotation only.
+race_windows: [0, 0.001, 0.01]
