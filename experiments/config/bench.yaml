@@ -1,0 +1,10 @@
+# Performance benchmark: /refresh latency and throughput over HTTP.
+name: bench
+backend: redis             # memory | redis (server-side store)
+redis_url: redis://localhost:6379/0
+port: 8765
+strategies: [static, naive_rotation, atomic_rotation, grace_rotation]
+concurrency: [1, 10]       # parallel clients, each refreshing its own family
+requests_per_client: 100
+warmup_requests: 30
+repeats: 5                 # medians and min/max are reported across repeats
