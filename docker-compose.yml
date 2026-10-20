@@ -4,4 +4,18 @@ services:
     ports:
       - "6379:6379"
 
-  # Keycloak, Ory Hydra and Postgres will be added in Phase 4.
+  # Local Keycloak instance used to compare the project's own strategies
+  # against a real authorization server (Phase 4 validation target,
+  # CVE-2026-1035). Version pinned via KEYCLOAK_VERSION in .env.
+  keycloak:
+    image: quay.io/keycloak/keycloak:${KEYCLOAK_VERSION:-26.2.5}
+    command: ["start-dev", "--import-realm"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./infra/docker/keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
+
+  # Ory Hydra and Postgres are added next.
