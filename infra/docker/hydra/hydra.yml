@@ -1,0 +1,28 @@
+# Self-hosted Hydra config for the comparison harness.
+# rotation_grace_period mirrors the project's own grace_rotation strategy;
+# override it from .env to sweep the grace window like experiments/configs/grace.yaml.
+serve:
+  cookies:
+    same_site_mode: Lax
+
+urls:
+  self:
+    issuer: http://127.0.0.1:4444/
+  # No real consent UI is run; the harness client drives the login/consent
+  # admin API directly, so these just need to be well-formed URLs.
+  login: http://127.0.0.1:9999/login
+  consent: http://127.0.0.1:9999/consent
+
+oauth2:
+  grant:
+    refresh_token:
+      rotation_grace_period: 0s
+      rotation_grace_reuse_count: 0
+
+ttl:
+  access_token: 5m
+  refresh_token: 720h
+
+secrets:
+  system:
+    - gr9-dev-secret-not-for-production
