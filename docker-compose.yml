@@ -18,4 +18,44 @@ services:
     volumes:
       - ./infra/docker/keycloak/realm.json:/opt/keycloak/data/import/realm.json:ro
 
-  # Ory Hydra and Postgres are added next.
+  # Second real authorization server, compared against Keycloak and the
+  # project's own strategies. Hydra has no admin UI and no password grant;
+  # the harness drives the authorization-code + login/consent admin API
+  # itself (see servers/hydra_client.py). SQLite keeps the setup to one
+  # extra container; HYDRA_GRACE_PERIOD mirrors grace_rotation's window.
+  hydra-sqlite:
+    image: busybox
+    volumes:
+      - hydra-sqlite:/mnt/sqlite
+    command: chmod -R 777 /mnt/sqlite
+
+  hydra-migrate:
+    image: oryd/hydra:${HYDRA_VERSION:-v26.2.0}
+    environment:
+      DSN: sqlite:///mnt/sqlite/db.sqlite?_fk=true&mode=rwc
+    command: migrate -c /etc/config/hydra/hydra.yml sql up -e --yes
+    volumes:
+      - hydra-sqlite:/mnt/sqlite
+      - ./infra/docker/hydra/hydra.yml:/etc/config/hydra/hydra.yml:ro
+    depends_on:
+      hydra-sqlite:
+        condition: service_completed_successfully
+
+  hydra:
+    image: oryd/hydra:${HYDRA_VERSION:-v26.2.0}
+    environment:
+      DSN: sqlite:///mnt/sqlite/db.sqlite?_fk=true&mode=rwc
+      OAUTH2_GRANT_REFRESH_TOKEN_ROTATION_GRACE_PERIOD: ${HYDRA_GRACE_PERIOD:-0s}
+    command: serve -c /etc/config/hydra/hydra.yml all --dev
+    ports:
+      - "4444:4444" # public API (login/token)
+      - "4445:4445" # admin API (client + consent management)
+    volumes:
+      - hydra-sqlite:/mnt/sqlite
+      - ./infra/docker/hydra/hydra.yml:/etc/config/hydra/hydra.yml:ro
+    depends_on:
+      hydra-migrate:
+        condition: service_completed_successfully
+
+volumes:
+  hydra-sqlite:

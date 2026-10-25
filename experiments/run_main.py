@@ -9,6 +9,7 @@ from __future__ import annotations
 import asyncio
 import csv
 import dataclasses
+import functools
 import json
 import sys
 from pathlib import Path
@@ -22,7 +23,11 @@ from gr9_refresh_token_rotation.storage.token_store import (
     RedisTokenStore,
     TokenStore,
 )
-from gr9_refresh_token_rotation.strategies import STRATEGIES, NaiveRotationStrategy
+from gr9_refresh_token_rotation.strategies import (
+    STRATEGIES,
+    GraceWindowStrategy,
+    NaiveRotationStrategy,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -43,6 +48,9 @@ def variants(cfg: dict) -> list[tuple[str, str, dict]]:
         if name == NaiveRotationStrategy.name:
             for rw in cfg.get("race_windows", [0]):
                 out.append((f"{name}@rw={rw}", name, {"race_window": rw}))
+        elif name == GraceWindowStrategy.name:
+            for gw in cfg.get("grace_windows", [0.05]):
+                out.append((f"{name}@gw={gw}", name, {"grace_window": gw}))
         else:
             out.append((name, name, {}))
     return out
@@ -56,8 +64,12 @@ async def run(cfg: dict) -> tuple[list[dict], dict]:
     try:
         for label, name, kwargs in variants(cfg):
             strategy = STRATEGIES[name](store, **kwargs)
-            for scenario_name in cfg["scenarios"]:
-                scenario = SCENARIOS[scenario_name]
+            for spec in cfg["scenarios"]:
+                # A scenario is a name, or {name: ..., <param>: ...} for a parameter.
+                params = {} if isinstance(spec, str) else {k: v for k, v in spec.items() if k != "name"}
+                base = spec if isinstance(spec, str) else spec["name"]
+                scenario_name = base + "".join(f"@{v}" for v in params.values())
+                scenario = functools.partial(SCENARIOS[base], **params)
                 outcomes: list[TrialOutcome] = []
                 for trial in range(cfg["trials"]):
                     o = await scenario(strategy, store)
