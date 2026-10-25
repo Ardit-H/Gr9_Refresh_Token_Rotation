@@ -20,6 +20,7 @@ import json
 import sys
 from pathlib import Path
 
+from gr9_refresh_token_rotation.metrics.aggregate import wilson_ci
 from gr9_refresh_token_rotation.servers.keycloak_client import KeycloakClient
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -64,12 +65,18 @@ async def main() -> None:
         await client.aclose()
 
     forked = sum(r["forked"] for r in rows)
+    lo, hi = wilson_ci(forked, trials)
     print(f"\n{trials} trials, {concurrency} concurrent refreshes of the same token each")
-    print(f"family forked (>1 success): {forked}/{trials} ({forked / trials:.0%})")
+    print(f"family forked (>1 success): {forked}/{trials} "
+          f"({forked / trials:.0%}, 95% CI [{lo:.0%}, {hi:.0%}])")
 
     out = ROOT / "results" / "keycloak_validation"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "trials.json").write_text(json.dumps(rows, indent=2))
+    (out / "trials.json").write_text(json.dumps(
+        {"trials": trials, "concurrency": concurrency, "forked": forked,
+         "fork_rate": forked / trials, "ci95_lo": lo, "ci95_hi": hi, "race": rows},
+        indent=2,
+    ))
     print(f"Wrote {out / 'trials.json'}")
 
 
