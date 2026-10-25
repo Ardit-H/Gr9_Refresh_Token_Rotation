@@ -1,0 +1,449 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{cite}
+
+\begin{document}
+
+\title{Empirical Study of Refresh-Token Rotation and Reuse Detection\\
+Under Concurrent Requests}
+
+\author{
+\IEEEauthorblockN{Albena Veseli, Ardit Hyseni, Erblin Syla}
+\IEEEauthorblockA{Group 9 --- Information Security\\
+University of Prishtina | Faculty of Electrical and Computer Engineering\\
+Email: albena.veseli@student.uni-pr.edu, ardit.hyseni5@student.uni-pr.edu, erblin.syla@student.uni-pr.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+OAuth 2.0 Security Best Current Practice (RFC 9700) recommends refresh-token
+rotation and reuse detection to limit the impact of a stolen refresh token,
+but the practical behavior of these mechanisms under \emph{concurrent}
+refresh requests is implementation-dependent. We built a small authentication
+service implementing four refresh-token strategies --- static (no rotation),
+naive rotation (non-atomic read-then-write), atomic rotation
+(compare-and-set), and atomic rotation with a reuse grace window --- and a
+concurrency test harness that replays a stolen token sequentially,
+concurrently, and after a delay. We measured attacker success, reuse
+detection, token-family forking, and legitimate-session survival over 200
+trials per configuration (95\% Wilson confidence intervals reported
+throughout), and compared the controlled implementation against two real
+open-source authorization servers, Keycloak and Ory Hydra, running locally.
+Naive rotation forks the token family in 100\% [98\%, 100\%] of concurrent
+races with \emph{zero} reuse alerts, a silent compromise that sequential
+testing alone would not reveal. Atomic rotation detects every race but
+always revokes the legitimate session along with the attacker's, since the
+two cannot be told apart. A reuse grace window reproduces the same silent
+takeover as naive rotation whenever the attacker replays inside the window.
+Against real servers, the concurrent race did not reproduce on a
+single-node Keycloak 26.2.5 instance (0/50 trials, 95\% CI [0\%, 7\%]),
+consistent with CVE-2026-1035's ``high'' attack-complexity rating, but
+reproduced reliably on Ory Hydra v26.2.0 (48/50 trials, 95\% CI [87\%,
+99\%]), which also revoked the legitimate client's session once a genuine
+reuse was detected outside its grace window --- mirroring our own atomic
+strategy's behavior.
+\end{abstract}
+
+\section{Introduction}
+
+Refresh tokens allow applications to maintain long-lived user sessions
+without keeping access tokens valid for long periods. If a refresh token is
+stolen, an attacker may use it to obtain new access tokens and continue
+accessing resources on behalf of the user. RFC~9700 recommends refresh-token
+rotation and reuse detection as a way of detecting the replay of a
+compromised refresh token \cite{rfc9700}: a new refresh token is issued
+after each successful refresh, the previous token is no longer accepted, and
+reuse of an already-invalidated token signals compromise. The OAuth 2.0
+threat model discusses the same risk \cite{rfc6819}.
+
+While RFC~9700 establishes rotation and reuse detection as recommended
+measures, their behavior under \emph{concurrent} refresh requests is
+implementation-dependent. The interaction between checking a token's state,
+updating that state, and concurrent requests can determine whether reuse is
+detected consistently. This is not merely hypothetical: CVE-2026-1035
+\cite{cve} in Keycloak is a time-of-check-to-time-of-use (TOCTOU) flaw in which concurrent
+requests could each exchange the same refresh token for a valid access
+token before the usage state was updated, bypassing single-use enforcement.
+More generally, a legitimate client and an attacker may send requests with
+the same refresh token at nearly the same time, and the outcome may depend
+on whether the implementation performs a simple read-then-write operation
+or an atomic state transition.
+
+To our knowledge, no peer-reviewed empirical study has systematically
+measured this behavior across real implementations. Recent
+specification-level treatments of refresh-token rotation explicitly leave
+this empirical characterization as open work, making no claim about how
+often such race conditions occur in deployed systems \cite{nebula}. The
+foundational formal analysis of OAuth~2.0 \cite{fett2016} deliberately
+excludes token expiration and revocation, and fuzzing frameworks such as
+OAuthFuzz \cite{oauthfuzz} aim to discover unknown logic bugs rather than
+measure a specific mechanism under concurrency.
+
+The main research question investigated in this paper is:
+
+\begin{quote}
+\emph{How do different refresh-token rotation strategies affect reuse
+detection, legitimate-session survival, and performance under concurrent
+refresh requests?}
+\end{quote}
+
+A secondary question is whether a configured grace window (a short interval
+during which a just-rotated token is still accepted, intended to tolerate
+lost responses) enables a \emph{silent takeover}, in which an attacker
+obtains a valid token family with no reuse alert raised.
+
+\section{Related Work}
+
+RFC~9700 \cite{rfc9700} and the earlier OAuth 2.0 threat model
+\cite{rfc6819} establish rotation and reuse detection as recommended
+countermeasures against refresh-token compromise, but are specification
+documents and do not measure implementation behavior. Fett et al.
+\cite{fett2016} give a comprehensive formal security analysis of OAuth~2.0,
+but explicitly exclude token expiration and revocation from their model.
+NEBULA \cite{nebula} gives a language-independent specification for opaque
+rotating refresh tokens and explicitly leaves empirical measurement of race
+conditions in deployed systems as open work. OAuthFuzz \cite{oauthfuzz} is
+a protocol-aware fuzzer for OAuth~2.0 implementations aimed at discovering
+unknown logic bugs, rather than measuring the behavior of a specific,
+known mechanism under controlled concurrency. This project sits in the gap
+between these: a controlled, repeatable measurement of one specific,
+already-documented mechanism (rotation and reuse detection) under
+concurrency, validated against real server implementations.
+
+\section{Methodology}
+
+\subsection{Rotation strategies}
+
+We implemented a small FastAPI authentication service backed by a
+pluggable token store (in-memory or Redis), with four interchangeable
+refresh-token strategies:
+
+\begin{itemize}
+\item \textbf{Static}: the refresh token is never rotated and can be
+reused indefinitely. This is the baseline.
+\item \textbf{Naive rotation}: the token's status is read, checked, and
+then written back as two separate store operations (a classic
+time-of-check-to-time-of-use pattern), with an optional configurable delay
+between the two steps.
+\item \textbf{Atomic rotation}: the token's status is updated with a
+single compare-and-set operation (a Lua script under Redis), so only one
+concurrent caller can successfully consume a given token. The loser is
+treated as a reuse attempt and the whole token family is revoked.
+\item \textbf{Grace-window rotation}: atomic rotation, but a token
+presented again within a configurable grace window after being consumed is
+treated as a benign retry rather than a reuse attempt, and is issued a
+fresh token silently, with no alert and no revocation.
+\end{itemize}
+
+\subsection{Concurrency harness}
+
+A Python \texttt{asyncio}-based harness simulates a legitimate client and
+an attacker who holds a copy of the same stolen refresh token, and drives
+three scenarios:
+
+\begin{itemize}
+\item \textbf{Sequential replay}: one party refreshes, then the other
+presents the now-superseded token.
+\item \textbf{Concurrent race}: both parties present the same token at the
+same instant, synchronized with an \texttt{asyncio.Event} gate so neither
+is systematically scheduled first.
+\item \textbf{Delayed replay}: the legitimate client rotates, and the
+attacker replays the stolen token after a configurable delay --- used to
+probe the boundary of a grace window.
+\end{itemize}
+
+For each trial we record whether the attacker obtained a valid access
+token, whether a reuse alert was raised, how many live tokens remain in
+the token family (more than one indicates \emph{forking}), whether the
+token family was revoked, and whether the legitimate client's session
+still works afterward. Every rate reported in this paper is accompanied by
+its 95\% Wilson score confidence interval \cite{wilson1927}, computed from
+the number of trials and successes rather than the normal approximation,
+since several of our rates sit at or near the 0\%/100\% boundary where the
+normal approximation is unreliable.
+
+\subsection{Real-server comparison}
+
+In addition to the controlled implementation, we ran two open-source
+OAuth~2.0/OIDC authorization servers locally in Docker: \textbf{Keycloak
+26.2.5} (the version associated with CVE-2026-1035, configured with strict
+rotation: \texttt{revokeRefreshToken=true}, \texttt{refreshTokenMaxReuse=0})
+and \textbf{Ory Hydra v26.2.0} (SQLite-backed, strict rotation by default,
+i.e.\ \texttt{rotation\_grace\_period=0s}). For Keycloak we used the
+resource-owner password grant to obtain and refresh tokens directly. Hydra
+has no password grant, so we drove its authorization-code flow
+programmatically against its login/consent \emph{admin} API --- the same
+mechanism a real consent application uses, invoked directly rather than
+through a browser --- to obtain and refresh tokens for a single test
+subject on our own local instance.
+
+\section{Results}
+
+\subsection{Controlled implementation}
+
+Table~\ref{tab:main-results} summarizes the concurrent-race scenario for
+each strategy over 200 trials; Fig.~\ref{fig:security} shows the same data
+alongside sequential-replay detection, which was 100\% for both rotation
+strategies in every configuration tested.
+
+\input{tables/main_results.tex}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/security_concurrent_race.png}
+\caption{Security outcomes under a concurrent refresh race, by strategy
+(N=200 trials each).}
+\label{fig:security}
+\end{figure}
+
+Static tokens are trivially and permanently exploitable: the attacker
+succeeds every time and nothing is ever flagged. Naive rotation correctly
+detects a \emph{sequential} replay (100\% [98\%, 100\%] detection, median
+latency $\approx$25\,\textmu s) but under a true concurrent race it forks
+the token family in 100\% [98\%, 100\%] of trials with \emph{zero} reuse
+alerts --- both the attacker and the legitimate client receive a valid,
+independent successor token, and the compromise is completely silent.
+Atomic rotation detects every race (100\% [98\%, 100\%]) and never forks;
+the attacker wins the race in 51.5\% [45\%, 58\%] of trials (consistent
+with the 50\% expected from randomized start order --- the 95\% CI
+comfortably includes 50\%), but the loser --- whichever party it is --- is
+immediately detected and the whole token family, including the legitimate
+client's side, is revoked. Widening naive rotation's internal check/use gap
+from 0 to 10\,ms had no additional effect on the race outcome: it was
+already forking in 100\% of trials at zero added delay, since ordinary
+\texttt{asyncio} scheduling is enough to open the window.
+
+\subsection{Grace window (secondary research question)}
+
+Fig.~\ref{fig:grace} shows the silent-compromise rate as a function of how
+long after rotation the attacker replays the stolen token, for atomic
+rotation (no grace window) versus grace-window rotation (50\,ms window).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/grace_window_takeover.png}
+\caption{Silent-compromise rate vs.\ attacker replay delay, with and
+without a 50\,ms reuse grace window (N=100 trials per point).}
+\label{fig:grace}
+\end{figure}
+
+Atomic rotation detects a replay at every delay tested. Grace-window
+rotation silently admits the attacker in 100\% of trials when the replay
+falls inside the 50\,ms window (10\,ms and 30\,ms delays) and correctly
+detects it in 100\% of trials once the delay exceeds the window
+(100\,ms). This directly confirms the secondary research question: a
+configured grace window enables a silent token-family takeover, with no
+reuse alert raised, for any attacker fast enough to replay within it.
+
+\subsection{Performance}
+
+Fig.~\ref{fig:latency} shows single-client, real-HTTP refresh latency
+(median of 5 repeated runs, error bars show min/max) for each strategy
+against the deployed FastAPI service with a Redis backend.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/benchmark_latency.png}
+\caption{Single-client p50 refresh latency by strategy over real HTTP.}
+\label{fig:latency}
+\end{figure}
+
+Rotation costs roughly 2.7\,ms over the static baseline (5.75\,ms vs.\
+8.4\,ms), reflecting the extra Redis write needed to persist a new token
+record. Critically, atomic rotation (8.38\,ms) shows no measurable cost
+over naive rotation (8.44\,ms): making the state transition atomic is
+effectively free, so the security gain comes at no latency penalty.
+Grace-window rotation costs a further $\sim$0.8\,ms (9.23\,ms) for the
+additional timestamp write needed to track the grace period. Under
+10 concurrent clients, throughput converged to $\approx$175\,requests/s
+for all four strategies, indicating the deployment (one \texttt{uvicorn}
+worker on a single machine) rather than any strategy was the bottleneck
+at that load; we therefore do not draw strategy comparisons from the
+multi-client results.
+
+Fig.~\ref{fig:resources} reports the server process's mean CPU usage and
+resident memory (RSS) under the single-client load, sampled every 50\,ms
+with \texttt{psutil} and averaged over the same 5 repeated runs.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/benchmark_resources.png}
+\caption{Server-process CPU and memory usage by strategy, single client,
+median of 5 repeated runs.}
+\label{fig:resources}
+\end{figure}
+
+Resident memory is flat across all four strategies (54.8--56.1\,MB),
+confirming that the baseline Python/uvicorn/FastAPI process footprint
+dominates and that none of the strategies hold meaningfully more state in
+memory than any other --- unsurprising, since every strategy's per-token
+state lives in Redis, not in the server process. Mean CPU usage ranges
+from 13.9\% (static) to 20.8\% (grace rotation) and roughly tracks each
+strategy's per-request latency rather than suggesting a fundamentally
+different algorithmic cost: a strategy that takes longer per request
+keeps the single-threaded event loop busy longer per request, which
+\texttt{psutil} reports as higher CPU occupancy, even though the
+underlying work (one or two small Redis operations) is comparable across
+strategies. We therefore do not read these figures as evidence that any
+rotation strategy is computationally expensive in an absolute sense; the
+CPU/memory comparison instead supports the same conclusion as the latency
+results, that the cost of atomicity and the grace window is small and
+dominated by I/O to the token store rather than CPU-bound computation.
+
+\subsection{Real-server comparison}
+
+Table~\ref{tab:real-server} reports the concurrent-race outcome against
+both real authorization servers, using matched parameters (50 trials,
+10 concurrent refreshes of the same token per trial).
+
+\input{tables/real_server_comparison.tex}
+
+Both servers correctly reject a sequential replay of a stale token
+(HTTP 400 \texttt{invalid\_grant}). Under the concurrent race, however,
+the two servers diverge sharply. Keycloak 26.2.5, configured exactly as
+described for CVE-2026-1035 (strict rotation, \texttt{refreshTokenMaxReuse=0}),
+did not fork in any of 50 trials (95\% CI [0\%, 7\%]); a smaller,
+exploratory run at concurrency levels up to 50 simultaneous requests for
+the same token (30/10/5 trials at concurrency 2/20/50) showed the same
+pattern, each trial deterministically producing exactly one HTTP~200 and
+the rest HTTP~400. Ory Hydra, by contrast, forked in 48 of 50 trials (96\%,
+95\% CI [87\%, 99\%]) --- a confidence interval clearly separated from
+Keycloak's --- typically with 2--3 of 10 concurrent requests succeeding
+rather than all 10, indicating a real but narrow race window rather than
+an absence of any single-use enforcement.
+We also cross-checked the grace-window question against Hydra's own
+\texttt{rotation\_grace\_period} setting (configured to 5\,s): a replay at
+1\,s or 3\,s after rotation succeeded silently with no error, exactly
+reproducing the silent takeover observed in our own grace-window strategy;
+a replay at 6\,s (outside the window) was rejected, and --- notably ---
+also revoked the legitimate client's already-rotated token, the same
+trade-off we observed in our own atomic strategy.
+
+\section{Discussion}
+
+The central finding is that \emph{sequential} testing of rotation and
+reuse detection, which is what most informal testing and manual QA would
+naturally perform, is insufficient to characterize security under
+concurrency: naive rotation passes every sequential test perfectly (100\%
+detection) while failing every concurrent one (100\% silent fork). A
+system that appears secure under the OAuth BCP's stated threat model can
+still be fully compromised by an attacker capable of racing a single
+request against the legitimate client, with no observable trace in server
+logs or alerts.
+
+The atomic strategy's trade-off is equally important to state plainly:
+making reuse detection reliable under concurrency does not mean the
+attacker never wins the race ($\approx$52\% of the time, they do, since the
+server cannot distinguish the two parties by anything other than arrival
+order), but it does mean the loser is always detected and the family is
+always revoked --- including the legitimate client's side. This matches
+behavior we also observed on Ory Hydra: detected reuse outside its grace
+window revoked the legitimate client too. This is consistent with the
+recommended response in RFC~9700, but it means atomic rotation alone
+converts an attacker's successful race into a denial-of-service against
+the legitimate user, not into a silent, cost-free defense.
+
+On CVE-2026-1035, our inability to reproduce the race against a
+single-node Keycloak~26.2.5 dev instance, despite replicating the exact
+configuration described in the advisory, is itself informative rather
+than a null result. Red Hat's own CVSS vector for this CVE rates attack
+complexity as ``high,'' and our result is consistent with that: the
+window in Keycloak's implementation appears to be closed in practice
+under ordinary HTTP-level concurrency on a single node, likely due to
+locking introduced by its embedded database transaction, and may require
+a clustered or cache-backed deployment to open. Ory Hydra's reliable,
+bounded-fraction fork under the identical test methodology shows our
+harness and methodology \emph{can} detect a genuine TOCTOU race over real
+HTTP when one exists, which supports treating the Keycloak result as a
+genuine negative rather than a harness limitation.
+
+\section{Limitations}
+
+Results depend on the specific versions, configurations, and storage
+backends of the tested systems (Keycloak~26.2.5, Ory Hydra~v26.2.0,
+Redis~7, SQLite for Hydra) and should not be treated as universal
+properties of all OAuth~2.0 authorization servers or of later versions.
+Both real-server deployments were single-node development instances; a
+clustered or high-load production deployment could plausibly open race
+windows that do not appear here, particularly for Keycloak. All testing
+targeted only our own local, containerized systems with synthetic
+clients; no real users or third-party services were involved. The project
+assumes a refresh token has already been compromised and does not
+investigate how it was obtained (XSS, malware, and device compromise are
+out of scope). Concurrency results can be affected by the host operating
+system, hardware, and scheduling; all experiments here were run on a
+single Windows machine with Docker Desktop, which we note for
+reproducibility rather than as a controlled variable. The 200/100-trial
+security experiments and the real-server validation were each run once,
+not repeated across separate sessions; the reported confidence intervals
+quantify sampling variability within a single run of $N$ trials but not
+variability across different machine states, times of day, or reboots.
+CPU and memory sampling (Fig.~\ref{fig:resources}) measures only the
+server process's own usage at a 50\,ms polling interval on a single
+machine; it does not account for Redis's or Docker's own resource
+consumption, and the sampling interval is too coarse to attribute usage
+to individual requests.
+
+\section{Conclusion}
+
+We built a controlled refresh-token rotation testbed and concurrency
+harness and used it to show that non-atomic (naive) rotation, despite
+passing all sequential reuse-detection tests, silently forks the token
+family in 100\% of concurrent races with no alert raised, while atomic
+(compare-and-set) rotation detects every race at a measured latency cost
+of effectively zero over the naive implementation. A reuse grace window,
+intended to tolerate lost responses, reproduces the same silent-takeover
+failure mode whenever an attacker can replay within the window, both in
+our own implementation and against Ory Hydra's equivalent setting.
+Comparing the same methodology against two real authorization servers
+showed that the concurrent race does not reproduce against a single-node
+Keycloak~26.2.5 instance, consistent with CVE-2026-1035's documented high
+attack complexity, but does reproduce reliably against Ory Hydra, which
+also revokes the legitimate session on detected reuse --- the same
+security/availability trade-off observed in our own atomic strategy. These
+results support preferring atomic, compare-and-set token-state transitions
+over read-then-write rotation, and avoiding reuse grace windows unless
+their silent-takeover exposure is explicitly accepted.
+
+\begin{thebibliography}{5}
+
+\bibitem{rfc9700}
+T. Lodderstedt, J. Bradley, A. Labunets, and D. Fett, ``Best Current
+Practice for OAuth 2.0 Security,'' RFC 9700, IETF, Jan. 2025. [Online].
+Available: \url{https://www.rfc-editor.org/rfc/rfc9700.html}
+
+\bibitem{rfc6819}
+T. Lodderstedt, M. McGloin, and P. Hunt, ``OAuth 2.0 Threat Model and
+Security Considerations,'' RFC 6819, IETF, Jan. 2013. [Online]. Available:
+\url{https://www.rfc-editor.org/rfc/rfc6819.html}
+
+\bibitem{nebula}
+M. Teodori, ``NEBULA: A Language-Independent Specification for Opaque
+Rotating Refresh Tokens,'' arXiv:2608.04115, Aug. 2026. [Online].
+Available: \url{https://arxiv.org/abs/2608.04115}
+
+\bibitem{fett2016}
+D. Fett, R. K\"usters, and G. Schmitz, ``A Comprehensive Formal Security
+Analysis of OAuth 2.0,'' in \emph{Proc. ACM SIGSAC Conf. Computer and
+Communications Security (CCS)}, 2016, pp. 1204--1215.
+
+\bibitem{oauthfuzz}
+G. Zhang et al., ``OAuthFuzz: Protocol-Aware Adaptive Fuzzing for OAuth
+2.0 Implementations,'' preprint, SSRN 7094132, 2026.
+
+\bibitem{cve}
+Red Hat, ``CVE-2026-1035,'' Red Hat CVE Database, Jan. 2026. [Online].
+Available: \url{https://access.redhat.com/security/cve/CVE-2026-1035}
+
+\bibitem{wilson1927}
+E. B. Wilson, ``Probable Inference, the Law of Succession, and Statistical
+Inference,'' \emph{Journal of the American Statistical Association},
+vol. 22, no. 158, pp. 209--212, 1927.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,13 @@
+\begin{table}[htbp]
+\centering
+\caption{Concurrent-race reproduction against real authorization servers (brackets show the 95\% Wilson confidence interval).}
+\label{tab:real-server}
+\begin{tabular}{lcc}
+\toprule
+Server & Trials & Family fork rate \\
+\midrule
+Keycloak 26.2.5 & 50 & 0\% [0\%, 7\%] \\
+Ory Hydra v26.2.0 & 50 & 96\% [87\%, 99\%] \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering
+\caption{Security outcomes under a concurrent refresh race (N=200 trials; brackets show the 95\% Wilson confidence interval).}
+\label{tab:main-results}
+\begin{tabular}{lccc}
+\toprule
+Strategy & Attacker success & Reuse detected & Family forked \\
+\midrule
+static & 100\% [98\%, 100\%] & 0\% [0\%, 2\%] & 0\% [0\%, 2\%] \\
+naive rotation & 100\% [98\%, 100\%] & 0\% [0\%, 2\%] & 100\% [98\%, 100\%] \\
+atomic rotation & 52\% [45\%, 58\%] & 100\% [98\%, 100\%] & 0\% [0\%, 2\%] \\
+\bottomrule
+\end{tabular}
+\end{table}
