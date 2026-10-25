@@ -1,0 +1,322 @@
+{
+  "static/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "static/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 2.519995905458927e-05,
+    "detection_latency_p95_s": 3.520003519952297e-05,
+    "detection_latency_p99_s": 4.879990592598915e-05
+  },
+  "naive_rotation@rw=0/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0.001/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.015111299930140376,
+    "detection_latency_p95_s": 0.01589579996652901,
+    "detection_latency_p99_s": 0.016052099876105785
+  },
+  "naive_rotation@rw=0.001/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0.01/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.015066499821841717,
+    "detection_latency_p95_s": 0.015792200108990073,
+    "detection_latency_p99_s": 0.015875200042501092
+  },
+  "naive_rotation@rw=0.01/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "atomic_rotation/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 1.71000137925148e-05,
+    "detection_latency_p95_s": 3.0199997127056122e-05,
+    "detection_latency_p99_s": 4.83999028801918e-05
+  },
+  "atomic_rotation/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 0.515,
+    "attacker_success_ci95": [
+      0.44610724474630287,
+      0.5833273750761475
+    ],
+    "mean_attacker_successes": 0.515,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 6.760004907846451e-05,
+    "detection_latency_p95_s": 9.480002336204052e-05,
+    "detection_latency_p99_s": 0.00012630014680325985
+  }
+}

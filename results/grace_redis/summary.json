@@ -1,0 +1,98 @@
+{
+  "atomic_rotation/delayed_replay@0.01": {
+    "trials": 100,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.03807560005225241,
+    "detection_latency_p95_s": 0.051439999835565686,
+    "detection_latency_p99_s": 0.05264539993368089
+  },
+  "atomic_rotation/delayed_replay@0.03": {
+    "trials": 100,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.0622359998524189,
+    "detection_latency_p95_s": 0.06860520015470684,
+    "detection_latency_p99_s": 0.07150249998085201
+  },
+  "atomic_rotation/delayed_replay@0.1": {
+    "trials": 100,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.12924799998290837,
+    "detection_latency_p95_s": 0.14417860005050898,
+    "detection_latency_p99_s": 0.14532800018787384
+  },
+  "atomic_rotation/concurrent_race": {
+    "trials": 100,
+    "attacker_success_rate": 0.51,
+    "mean_attacker_successes": 0.51,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.0036547998897731304,
+    "detection_latency_p95_s": 0.011249999981373549,
+    "detection_latency_p99_s": 0.012021100148558617
+  },
+  "grace_rotation@gw=0.05/delayed_replay@0.01": {
+    "trials": 100,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 1.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "grace_rotation@gw=0.05/delayed_replay@0.03": {
+    "trials": 100,
+    "attacker_success_rate": 0.77,
+    "mean_attacker_successes": 0.77,
+    "reuse_detection_rate": 0.23,
+    "family_fork_rate": 0.77,
+    "silent_compromise_rate": 0.77,
+    "legit_session_survival_rate": 0.77,
+    "detection_latency_p50_s": 0.05765189998783171,
+    "detection_latency_p95_s": 0.07433310011401772,
+    "detection_latency_p99_s": 0.07976619992405176
+  },
+  "grace_rotation@gw=0.05/delayed_replay@0.1": {
+    "trials": 100,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.13864480005577207,
+    "detection_latency_p95_s": 0.14334950014017522,
+    "detection_latency_p99_s": 0.14645549980923533
+  },
+  "grace_rotation@gw=0.05/concurrent_race": {
+    "trials": 100,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 1.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  }
+}

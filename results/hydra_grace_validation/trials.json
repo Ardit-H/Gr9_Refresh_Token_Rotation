@@ -1,0 +1,20 @@
+[
+  {
+    "delay_s": 1.0,
+    "attacker_succeeded": true,
+    "attacker_status": 200,
+    "legit_survived": true
+  },
+  {
+    "delay_s": 3.0,
+    "attacker_succeeded": true,
+    "attacker_status": 200,
+    "legit_survived": true
+  },
+  {
+    "delay_s": 6.0,
+    "attacker_succeeded": false,
+    "attacker_status": 400,
+    "legit_survived": false
+  }
+]

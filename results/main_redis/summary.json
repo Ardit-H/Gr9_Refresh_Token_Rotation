@@ -1,0 +1,122 @@
+{
+  "static/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "static/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.005760899977758527,
+    "detection_latency_p95_s": 0.007364799967035651,
+    "detection_latency_p99_s": 0.00856690015643835
+  },
+  "naive_rotation@rw=0/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 1.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0.001/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.009772300021722913,
+    "detection_latency_p95_s": 0.023295699851587415,
+    "detection_latency_p99_s": 0.02511940011754632
+  },
+  "naive_rotation@rw=0.001/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 1.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0.01/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.025499199982732534,
+    "detection_latency_p95_s": 0.03806310007348657,
+    "detection_latency_p99_s": 0.04409539978951216
+  },
+  "naive_rotation@rw=0.01/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "mean_attacker_successes": 1.0,
+    "reuse_detection_rate": 0.0,
+    "family_fork_rate": 1.0,
+    "silent_compromise_rate": 1.0,
+    "legit_session_survival_rate": 1.0,
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "atomic_rotation/sequential_replay": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.006169099826365709,
+    "detection_latency_p95_s": 0.009450000012293458,
+    "detection_latency_p99_s": 0.010600200155749917
+  },
+  "atomic_rotation/concurrent_race": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "mean_attacker_successes": 0.0,
+    "reuse_detection_rate": 1.0,
+    "family_fork_rate": 0.0,
+    "silent_compromise_rate": 0.0,
+    "legit_session_survival_rate": 0.0,
+    "detection_latency_p50_s": 0.0032418998889625072,
+    "detection_latency_p95_s": 0.0038256000261753798,
+    "detection_latency_p99_s": 0.004018800100311637
+  }
+}
