@@ -1,0 +1,3602 @@
+[
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "sequential_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "attacker_first_replay",
+    "attacker_ok": true,
+    "legit_ok": false,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 400,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": true,
+    "attacker_tokens": 4,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "concurrent_race",
+    "attacker_ok": true,
+    "legit_ok": true,
+    "forked": true,
+    "revoked": false,
+    "legit_survived": true,
+    "attacker_survived": false,
+    "attacker_tokens": 1,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 200
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": true,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  },
+  {
+    "scenario": "delayed_replay",
+    "attacker_ok": false,
+    "legit_ok": true,
+    "forked": false,
+    "revoked": true,
+    "legit_survived": false,
+    "attacker_survived": false,
+    "attacker_tokens": 0,
+    "attacker_probed_first": false,
+    "statuses": {
+      "legit": 200,
+      "attacker": 400
+    }
+  }
+]

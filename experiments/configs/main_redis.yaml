@@ -1,0 +1,18 @@
+# Main security experiment on the Redis store (same as main.yaml, backend: redis).
+name: main_redis
+trials: 200
+backend: redis
+redis_url: redis://localhost:6379/0
+strategies: [static, naive_rotation, atomic_rotation]
+# The four scenarios from the proposal (Sec. IV):
+#   sequential_replay      legitimate client refreshes first, attacker replays
+#   attacker_first_replay  attacker refreshes first, client presents stale token
+#   concurrent_race        both refresh at the same moment
+#   delayed_replay         old token reused some time after a successful rotation
+scenarios:
+  - sequential_replay
+  - attacker_first_replay
+  - concurrent_race
+  - {name: delayed_replay, delay: 0.1}
+# Widening the naive check/use gap (seconds); applies to naive_rotation only.
+race_windows: [0, 0.001, 0.01]

@@ -1,0 +1,14 @@
+# Same as grace.yaml, but with the Redis store.
+# Secondary research question: does a grace window enable a silent takeover?
+# Attacker replays the stolen token `delay` seconds after the client rotated.
+name: grace_redis
+trials: 100
+backend: redis
+redis_url: redis://localhost:6379/0
+strategies: [atomic_rotation, grace_rotation]
+grace_windows: [0.05]
+scenarios:
+  - {name: delayed_replay, delay: 0.01}
+  - {name: delayed_replay, delay: 0.03}
+  - {name: delayed_replay, delay: 0.1}
+  - concurrent_race

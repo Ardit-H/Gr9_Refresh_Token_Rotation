@@ -12,6 +12,10 @@ import random
 import time
 from dataclasses import dataclass
 
+# After a scenario, the attacker keeps refreshing with whatever token it
+# holds, up to this many times, to count how long its access lasts.
+ATTACKER_FOLLOW_UPS = 3
+
 from gr9_refresh_token_rotation.storage.token_store import ACTIVE, TokenStore
 from gr9_refresh_token_rotation.strategies import RefreshResult, RefreshStrategy
 
@@ -27,6 +31,9 @@ class TrialOutcome:
     family_revoked: bool
     legit_survived: bool         # legit client can still refresh afterwards
     detection_latency_s: float | None  # scenario start -> first reuse alert
+    # Access tokens the attacker obtained in total: the scenario's refresh
+    # plus up to ATTACKER_FOLLOW_UPS further refreshes with its own token.
+    attacker_tokens: int = 0
 
     @property
     def detected(self) -> bool:
@@ -80,6 +87,18 @@ async def _finish(
     # Session survival: can the legitimate client still refresh with the
     # token it holds? (Done last because the probe itself mutates state.)
     probe = await strategy.refresh(legit.token)
+
+    # Then let the attacker keep using its own token chain. Only possible if
+    # it obtained a token in the scenario (otherwise it holds a dead token).
+    follow_ups = 0
+    if attacker.successes:
+        for _ in range(ATTACKER_FOLLOW_UPS):
+            r = await strategy.refresh(attacker.token)
+            if not r.ok:
+                break
+            attacker.token = r.refresh_token
+            follow_ups += 1
+
     alert_times = sorted(legit.alert_times + attacker.alert_times)
 
     return TrialOutcome(
@@ -92,6 +111,7 @@ async def _finish(
         family_revoked=revoked,
         legit_survived=probe.ok,
         detection_latency_s=alert_times[0] if alert_times else None,
+        attacker_tokens=attacker.successes + follow_ups,
     )
 
 
@@ -164,8 +184,18 @@ async def delayed_replay(
     return await _finish("delayed_replay", strategy, store, login.family_id, legit, attacker)
 
 
+async def attacker_first_replay(
+    strategy: RefreshStrategy, store: TokenStore
+) -> TrialOutcome:
+    """The attacker rotates first; the client then presents the stale token."""
+    o = await sequential_replay(strategy, store, attacker_first=True)
+    o.scenario = "attacker_first_replay"
+    return o
+
+
 SCENARIOS = {
     "delayed_replay": delayed_replay,
     "sequential_replay": sequential_replay,
+    "attacker_first_replay": attacker_first_replay,
     "concurrent_race": concurrent_race,
 }

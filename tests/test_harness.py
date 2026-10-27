@@ -1,6 +1,10 @@
 import pytest
 
-from gr9_refresh_token_rotation.harness.scenarios import concurrent_race, sequential_replay
+from gr9_refresh_token_rotation.harness.scenarios import (
+    attacker_first_replay,
+    concurrent_race,
+    sequential_replay,
+)
 from gr9_refresh_token_rotation.storage.token_store import InMemoryTokenStore
 from gr9_refresh_token_rotation.strategies import (
     AtomicRotationStrategy,
@@ -65,3 +69,23 @@ async def test_replay_after_grace_window_is_detected(store):
 async def test_atomic_has_no_grace_window(store):
     out = await delayed_replay(AtomicRotationStrategy(store), store, delay=0.0)
     assert out.attacker_successes == 0 and out.detected
+
+
+@pytest.mark.parametrize("cls", [NaiveRotationStrategy, AtomicRotationStrategy])
+async def test_attacker_first_replay_detects_but_attacker_already_won(store, cls):
+    out = await attacker_first_replay(cls(store), store)
+    assert out.scenario == "attacker_first_replay"
+    assert out.attacker_successes == 1 and out.legit_successes == 0
+    assert out.detected and out.family_revoked
+
+
+async def test_attacker_tokens_counts_continued_access(store):
+    # Static: the stolen token keeps working, so every follow-up succeeds.
+    out = await sequential_replay(StaticStrategy(store), store)
+    assert out.attacker_tokens == 4
+    # Naive rotation forks under the race: the attacker's chain stays alive.
+    out = await concurrent_race(NaiveRotationStrategy(store), store)
+    assert out.attacker_tokens == 4
+    # Atomic rotation: the family is revoked, so no follow-up succeeds.
+    out = await concurrent_race(AtomicRotationStrategy(store), store)
+    assert out.attacker_tokens == out.attacker_successes

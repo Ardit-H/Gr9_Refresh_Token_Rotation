@@ -1,13 +1,17 @@
 \begin{table}[htbp]
 \centering
-\caption{Concurrent-race reproduction against real authorization servers (brackets show the 95\% Wilson confidence interval).}
+\caption{Concurrent refreshes of one token against real servers: share of trials in which more than one request succeeded (95\% Wilson CI).}
 \label{tab:real-server}
-\begin{tabular}{lcc}
+\begin{tabular}{lccc}
 \toprule
-Server & Trials & Family fork rate \\
+Server & Concurrent & Trials & Fork rate \\
 \midrule
-Keycloak 26.2.5 & 50 & 0\% [0\%, 7\%] \\
-Ory Hydra v26.2.0 & 50 & 96\% [87\%, 99\%] \\
+Keycloak 26.2.5 & 2 & 100 & 51\% [41\%, 61\%] \\
+Keycloak 26.2.5 & 5 & 30 & 7\% [2\%, 21\%] \\
+Keycloak 26.2.5 & 10 & 50 & 0\% [0\%, 7\%] \\
+Keycloak 26.2.5 & 20 & 10 & 0\% [0\%, 28\%] \\
+Keycloak 26.2.5 & 50 & 5 & 0\% [0\%, 43\%] \\
+Ory Hydra v26.2.0 & 10 & 50 & 98\% [90\%, 100\%] \\
 \bottomrule
 \end{tabular}
 \end{table}

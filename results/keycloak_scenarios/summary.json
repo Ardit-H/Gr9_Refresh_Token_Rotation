@@ -1,0 +1,181 @@
+{
+  "server": "keycloak",
+  "delay_s": 1.0,
+  "follow_ups": 3,
+  "sequential_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 0.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  },
+  "attacker_first_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 1.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  },
+  "concurrent_race": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 0.7,
+      "ci95_lo": 0.5749105303360957,
+      "ci95_hi": 0.8010198974727311,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.48333333333333334,
+      "ci95_lo": 0.3617484128577001,
+      "ci95_hi": 0.6069240514915643,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 0.5166666666666667,
+      "ci95_lo": 0.39307594850843575,
+      "ci95_hi": 0.6382515871422999,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.43333333333333335,
+      "ci95_lo": 0.3157220039440064,
+      "ci95_hi": 0.5589678534530513,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.45,
+      "ci95_lo": 0.3309345385376083,
+      "ci95_hi": 0.575082854510185,
+      "n": 60
+    },
+    "mean_attacker_tokens": 2.05,
+    "forked_attacker_first=True": {
+      "n": 14,
+      "attacker_survived": 14,
+      "legit_survived": 11
+    },
+    "forked_attacker_first=False": {
+      "n": 15,
+      "attacker_survived": 13,
+      "legit_survived": 15
+    }
+  },
+  "delayed_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 0.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  }
+}

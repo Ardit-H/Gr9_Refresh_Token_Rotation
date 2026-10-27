@@ -179,31 +179,77 @@ def table_main_results() -> None:
 
 
 def table_real_server_comparison() -> None:
-    """LaTeX table: Keycloak vs. Hydra race reproduction (Phase 4 result)."""
-    kc = json.loads((RESULTS / "keycloak_validation" / "trials.json").read_text())
-    hy = json.loads((RESULTS / "hydra_validation" / "trials.json").read_text())
+    """LaTeX table: concurrent-race fork rate vs. concurrency, both servers."""
+    runs = []
+    for c in (2, 5, 10, 20, 50):
+        name = "keycloak_validation" if c == 10 else f"keycloak_validation_c{c}"
+        path = RESULTS / name / "trials.json"
+        if path.exists():
+            runs.append(("Keycloak 26.2.5", json.loads(path.read_text())))
+    runs.append(("Ory Hydra v26.2.0",
+                 json.loads((RESULTS / "hydra_validation" / "trials.json").read_text())))
 
     lines = [
         r"\begin{table}[htbp]",
         r"\centering",
-        r"\caption{Concurrent-race reproduction against real authorization servers "
-        r"(brackets show the 95\% Wilson confidence interval).}",
+        r"\caption{Concurrent refreshes of one token against real servers: share of "
+        r"trials in which more than one request succeeded (95\% Wilson CI).}",
         r"\label{tab:real-server}",
-        r"\begin{tabular}{lcc}",
+        r"\begin{tabular}{lccc}",
         r"\toprule",
-        r"Server & Trials & Family fork rate \\",
+        r"Server & Concurrent & Trials & Fork rate \\",
         r"\midrule",
-        f"Keycloak 26.2.5 & {kc['trials']} & "
-        f"{_pct_ci(kc['fork_rate'], (kc['ci95_lo'], kc['ci95_hi']))} \\\\",
-        f"Ory Hydra v26.2.0 & {hy['trials']} & "
-        f"{_pct_ci(hy['fork_rate'], (hy['ci95_lo'], hy['ci95_hi']))} \\\\",
-        r"\bottomrule",
-        r"\end{tabular}",
-        r"\end{table}",
-        "",
     ]
+    for label, d in runs:
+        ci = _pct_ci(d["fork_rate"], (d["ci95_lo"], d["ci95_hi"]))
+        lines.append(f"{label} & {d['concurrency']} & {d['trials']} & {ci} \\\\")
+    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}", ""]
     TABLES.mkdir(parents=True, exist_ok=True)
     (TABLES / "real_server_comparison.tex").write_text("\n".join(lines))
+
+
+SERVER_SCENARIOS = [
+    ("sequential_replay", "Client first"),
+    ("attacker_first_replay", "Attacker first"),
+    ("concurrent_race", "Concurrent"),
+    ("delayed_replay", r"Delayed (1\,s)"),
+]
+
+
+def table_server_scenarios() -> None:
+    """LaTeX table: the four proposal scenarios against both real servers."""
+    lines = [
+        r"\begin{table*}[htbp]",
+        r"\centering",
+        r"\caption{The four scenarios against real servers (two parties, 60 trials "
+        r"each; 95\% Wilson CI). \emph{Revoked}: the successor that did rotate "
+        r"stopped working after the stale token was presented, i.e.\ reuse was "
+        r"detected. \emph{Attacker tokens}: mean access tokens obtained, including "
+        r"up to three follow-up refreshes. The client and attacker are probed "
+        r"afterwards in random order.}",
+        r"\label{tab:server-scenarios}",
+        r"\begin{tabular}{llcccccc}",
+        r"\toprule",
+        r"Server & Scenario & Attacker success & Forked & Revoked & "
+        r"Client survives & Attacker survives & Attacker tokens \\",
+        r"\midrule",
+    ]
+    for server, label in (("keycloak", "Keycloak"), ("hydra", "Hydra")):
+        path = RESULTS / f"{server}_scenarios" / "summary.json"
+        if not path.exists():
+            continue
+        d = json.loads(path.read_text())
+        for key, sc_label in SERVER_SCENARIOS:
+            m = d[key]
+            cells = [_pct_ci(m[k]["rate"], (m[k]["ci95_lo"], m[k]["ci95_hi"]))
+                     for k in ("attacker_ok", "forked", "revoked", "legit_survived",
+                               "attacker_survived")]
+            lines.append(f"{label} & {sc_label} & " + " & ".join(cells)
+                         + f" & {m['mean_attacker_tokens']:.2f} \\\\")
+        lines.append(r"\midrule")
+    lines[-1] = r"\bottomrule"
+    lines += [r"\end{tabular}", r"\end{table*}", ""]
+    (TABLES / "server_scenarios.tex").write_text("\n".join(lines))
 
 
 def main() -> None:
@@ -214,6 +260,7 @@ def main() -> None:
     fig_benchmark_resources()
     table_main_results()
     table_real_server_comparison()
+    table_server_scenarios()
     print(f"Wrote figures to {FIGURES}")
     print(f"Wrote tables to {TABLES}")
 

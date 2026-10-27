@@ -1,0 +1,10 @@
+# Pilot experiment (proposal Sec. VI): a small run that checks the harness
+# can generate concurrent requests and record token states correctly before
+# the main evaluation. Expected: naive forks under the race, atomic never does.
+name: pilot
+trials: 20
+backend: memory            # rerun with backend: redis for the Redis check
+redis_url: redis://localhost:6379/0
+strategies: [static, naive_rotation, atomic_rotation]
+scenarios: [sequential_replay, concurrent_race]
+race_windows: [0]

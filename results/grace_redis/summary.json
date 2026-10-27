@@ -2,95 +2,271 @@
   "atomic_rotation/delayed_replay@0.01": {
     "trials": 100,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.03807560005225241,
-    "detection_latency_p95_s": 0.051439999835565686,
-    "detection_latency_p99_s": 0.05264539993368089
+    "legit_session_survival_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
+    "detection_latency_p50_s": 0.025024899980053306,
+    "detection_latency_p95_s": 0.03213950013741851,
+    "detection_latency_p99_s": 0.035194600000977516
   },
   "atomic_rotation/delayed_replay@0.03": {
     "trials": 100,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.0622359998524189,
-    "detection_latency_p95_s": 0.06860520015470684,
-    "detection_latency_p99_s": 0.07150249998085201
+    "legit_session_survival_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
+    "detection_latency_p50_s": 0.04084339994005859,
+    "detection_latency_p95_s": 0.05192509992048144,
+    "detection_latency_p99_s": 0.05414070002734661
   },
   "atomic_rotation/delayed_replay@0.1": {
     "trials": 100,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.12924799998290837,
-    "detection_latency_p95_s": 0.14417860005050898,
-    "detection_latency_p99_s": 0.14532800018787384
+    "legit_session_survival_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
+    "detection_latency_p50_s": 0.11941789998672903,
+    "detection_latency_p95_s": 0.1299479000736028,
+    "detection_latency_p99_s": 0.13266539992764592
   },
   "atomic_rotation/concurrent_race": {
     "trials": 100,
-    "attacker_success_rate": 0.51,
-    "mean_attacker_successes": 0.51,
+    "attacker_success_rate": 0.49,
+    "attacker_success_ci95": [
+      0.3942183009238615,
+      0.5865215952256585
+    ],
+    "mean_attacker_successes": 0.49,
+    "mean_attacker_tokens": 0.49,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.0036547998897731304,
-    "detection_latency_p95_s": 0.011249999981373549,
-    "detection_latency_p99_s": 0.012021100148558617
+    "legit_session_survival_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
+    "detection_latency_p50_s": 0.0023699000012129545,
+    "detection_latency_p95_s": 0.002924199914559722,
+    "detection_latency_p99_s": 0.0034978999756276608
   },
   "grace_rotation@gw=0.05/delayed_replay@0.01": {
     "trials": 100,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
   },
   "grace_rotation@gw=0.05/delayed_replay@0.03": {
     "trials": 100,
-    "attacker_success_rate": 0.77,
-    "mean_attacker_successes": 0.77,
-    "reuse_detection_rate": 0.23,
-    "family_fork_rate": 0.77,
-    "silent_compromise_rate": 0.77,
-    "legit_session_survival_rate": 0.77,
-    "detection_latency_p50_s": 0.05765189998783171,
-    "detection_latency_p95_s": 0.07433310011401772,
-    "detection_latency_p99_s": 0.07976619992405176
+    "attacker_success_rate": 0.79,
+    "attacker_success_ci95": [
+      0.7001985069803768,
+      0.8583445046835422
+    ],
+    "mean_attacker_successes": 0.79,
+    "mean_attacker_tokens": 3.16,
+    "attacker_persistent_rate": 0.79,
+    "reuse_detection_rate": 0.21,
+    "reuse_detection_ci95": [
+      0.14165549531645785,
+      0.2998014930196232
+    ],
+    "family_fork_rate": 0.79,
+    "family_fork_ci95": [
+      0.7001985069803768,
+      0.8583445046835422
+    ],
+    "silent_compromise_rate": 0.79,
+    "silent_compromise_ci95": [
+      0.7001985069803768,
+      0.8583445046835422
+    ],
+    "legit_session_survival_rate": 0.79,
+    "legit_session_survival_ci95": [
+      0.7001985069803768,
+      0.8583445046835422
+    ],
+    "detection_latency_p50_s": 0.053536799969151616,
+    "detection_latency_p95_s": 0.058579899836331606,
+    "detection_latency_p99_s": 0.059924300061538815
   },
   "grace_rotation@gw=0.05/delayed_replay@0.1": {
     "trials": 100,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.13864480005577207,
-    "detection_latency_p95_s": 0.14334950014017522,
-    "detection_latency_p99_s": 0.14645549980923533
+    "legit_session_survival_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
+    "detection_latency_p50_s": 0.11801269999705255,
+    "detection_latency_p95_s": 0.1286168999504298,
+    "detection_latency_p99_s": 0.13251439994201064
   },
   "grace_rotation@gw=0.05/concurrent_race": {
     "trials": 100,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.03699480747600191
+    ],
     "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.963005192523998,
+      0.9999999999999998
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null

@@ -5,7 +5,8 @@ OAuth 2.0 / JWT refresh-token rotation strategies behave under **concurrent**
 refresh requests, and what that means for reuse detection, legitimate-session
 survival, and performance after a token has been compromised.
 
-> Full project proposal: [`docs/proposal/proposal.tex`](docs/proposal/proposal.tex)
+> Full project proposal: [`docs/proposal/Projekt-propozimi – Grupi 9.pdf`](docs/proposal/Projekt-propozimi%20%E2%80%93%20Grupi%209.pdf)  
+> Paper: [`docs/paper/paper.tex`](docs/paper/paper.tex)
 
 ## Research question
 
@@ -35,7 +36,7 @@ token-family takeover, with no reuse alert raised?
 ## Project status
 
 Core implementation and both Phase 4 validation targets are done and
-passing (26 tests). What's in:
+passing (32 tests; integration tests skip when their container is down). What's in:
 
 - **Service, strategies, storage** — FastAPI service with `static`,
   `naive_rotation`, `atomic_rotation` and `grace_rotation` strategies,
@@ -46,28 +47,41 @@ passing (26 tests). What's in:
   `metrics/aggregate.py`) — runs every strategy × scenario combination over
   N trials and writes rates/latency percentiles to `results/`.
 - **Performance benchmark** (`experiments/run_benchmark.py`) — drives the
-  real HTTP service and reports p50/p95/p99 latency and throughput per
-  strategy, with repeats for median/spread.
+  real HTTP service and reports p50/p95/p99 latency, throughput and
+  server CPU/memory per strategy, with repeats for median/spread.
+- **Scenarios** — all four from the proposal: legitimate client first
+  (`sequential_replay`), attacker first (`attacker_first_replay`),
+  concurrent race (`concurrent_race`), and old-token reuse after rotation
+  (`delayed_replay`).
+- **Docker** — `Dockerfile` plus `auth-service` and `harness` services in
+  `docker-compose.yml`, so the service and harness run containerized.
 - **Real-server comparison (Phase 4)** — Keycloak and Ory Hydra run via
-  `docker-compose.yml`; `experiments/run_keycloak_validation.py` and
-  `run_hydra_validation.py` attempt to reproduce the same concurrent-race
-  pattern against them. Result so far: the race does **not** reproduce
-  against Keycloak 26.2.5 over ordinary HTTP concurrency (consistent with
-  CVE-2026-1035's "High" attack-complexity rating), but it **does**
-  reproduce against Hydra v26.2.0 (a bounded fraction of concurrent
-  refreshes succeed). This itself is a result worth reporting, not a gap.
+  `docker-compose.yml`. `experiments/run_server_scenarios.py` runs the same
+  four two-party scenarios against each server; `run_keycloak_validation.py`
+  and `run_hydra_validation.py` send k simultaneous refreshes of one token.
+  Results:
+  - **CVE-2026-1035 reproduced on Keycloak 26.2.5**: with 2 simultaneous
+    refreshes, both succeed in 51% [41%, 61%] of trials and both token
+    chains stay valid (durable fork, like `naive_rotation`). The window
+    narrows with more competing requests (7% at 5, 0% at 10+).
+  - **Hydra v26.2.0** accepts one token more than once (98% at 10
+    concurrent requests). After the fork it keeps at most the chain used
+    first, so an attacker who refreshes first keeps the session and the
+    client is locked out (13/24 trials; client survived 0/24).
+  - On both servers a detected sequential reuse revokes the legitimate
+    session too, like `atomic_rotation`.
 
 - **Grace-window cross-check (`experiments/run_hydra_grace_validation.py`)**
   — run against Hydra's own `rotation_grace_period` (set via
-  `HYDRA_GRACE_PERIOD`, default `0s`/strict in `docker-compose.yml`). With a
-  5s window: replays inside the window silently succeed (no error, no
-  alert — the same silent takeover `grace_rotation` models); past the
-  window, the replay is rejected **and it revokes the legitimate client's
-  already-rotated token too**, mirroring `family_revoked` in the project's
-  own harness almost exactly.
+  `HYDRA_GRACE_PERIOD`, default `0s`/strict in `docker-compose.yml`), 20
+  trials per delay. With a 5s window: replays at 1s and 3s silently succeed
+  in 100% [84%, 100%] of trials (the same silent takeover `grace_rotation`
+  models); at 6s the replay is rejected **and it revokes the legitimate
+  client's already-rotated token too**.
 
-Still open: the analysis/plots for the final paper haven't been written up
-from the `results/` CSVs yet.
+- **Analysis and paper** — `experiments/analyze.py` builds the figures and
+  tables in `docs/paper/` from `results/`; the write-up is in
+  `docs/paper/paper.tex`.
 
 ## Repository structure
 
@@ -75,11 +89,12 @@ from the `results/` CSVs yet.
 .
 ├── README.md
 ├── pyproject.toml
-├── docker-compose.yml          # Redis + Keycloak + Ory Hydra
+├── Dockerfile                  # image for auth-service + harness
+├── docker-compose.yml          # Redis, auth-service, harness, Keycloak, Ory Hydra
 ├── .env.example
 ├── docs/
-│   └── proposal/
-│       └── proposal.tex        # project proposal (LaTeX / IEEEtran)
+│   ├── proposal/              # project proposal (PDF)
+│   └── paper/                 # paper.tex, figures/, tables/
 ├── src/
 │   └── gr9_refresh_token_rotation/
 │       ├── api/                 # authentication service (FastAPI)
@@ -95,7 +110,7 @@ from the `results/` CSVs yet.
 │       ├── storage/
 │       │   └── token_store.py   # InMemoryTokenStore / RedisTokenStore
 │       ├── harness/
-│       │   └── scenarios.py     # sequential_replay / concurrent_race / delayed_replay
+│       │   └── scenarios.py     # sequential / attacker_first / concurrent_race / delayed
 │       ├── servers/              # clients for the real-server comparison
 │       │   ├── keycloak_client.py
 │       │   └── hydra_client.py
@@ -103,20 +118,24 @@ from the `results/` CSVs yet.
 │           └── aggregate.py      # rates, percentiles, summarize()
 ├── experiments/
 │   ├── run_main.py               # security experiment: strategy x scenario, N trials
+│   ├── analyze.py                # figures + LaTeX tables for the paper
 │   ├── run_benchmark.py          # HTTP latency/throughput benchmark
+│   ├── run_server_scenarios.py   # the four scenarios against Keycloak / Hydra
 │   ├── run_keycloak_validation.py
 │   ├── run_hydra_validation.py
 │   ├── run_hydra_grace_validation.py
 │   └── configs/
 │       ├── main.yaml
+│       ├── main_redis.yaml       # same, on the Redis store
 │       ├── grace.yaml
-│       ├── bench.yaml
-│       └── static.yaml
+│       ├── grace_redis.yaml
+│       ├── pilot.yaml            # small pre-run check of the harness
+│       └── bench.yaml
 ├── infra/
 │   └── docker/
 │       ├── keycloak/realm.json   # strict rotation realm, auto-imported
 │       └── hydra/hydra.yml       # rotation_grace_period config
-├── results/                      # gitignored; written by the experiments/ scripts
+├── results/                      # CSV/JSON written by the experiments/ scripts (committed)
 └── tests/
     ├── test_strategies.py
     ├── test_harness.py
@@ -139,8 +158,8 @@ from the `results/` CSVs yet.
   `src/`.
 - **`infra/docker/`** holds the Keycloak realm and Hydra config needed to
   reproduce the comparison servers from a clean checkout.
-- **`results/`** is where the experiment scripts write CSV/JSON output; it's
-  git-ignored since it's regenerated by re-running the scripts.
+- **`results/`** is where the experiment scripts write CSV/JSON output; it is
+  committed so the paper's figures can be rebuilt without re-running everything.
 - **`tests/`** covers the library code with fast unit tests
   (`test_strategies.py`, `test_harness.py`) plus integration tests against
   the real services that skip cleanly when a container isn't running.
@@ -161,8 +180,20 @@ docker compose up -d
 # run the test suite (integration tests skip cleanly if a container isn't up)
 pytest
 
+# build the paper's figures and tables from results/
+python experiments/analyze.py
+
+# or run the service / harness fully in Docker
+docker compose up -d auth-service
+docker compose run --rm harness
+
 # run the main security experiment: every strategy x scenario, N trials each
 python experiments/run_main.py
+
+# pilot run, and the Redis-backed variants (needs: docker compose up -d redis)
+python experiments/run_main.py experiments/configs/pilot.yaml
+python experiments/run_main.py experiments/configs/main_redis.yaml
+python experiments/run_main.py experiments/configs/grace_redis.yaml
 
 # run the secondary grace-window experiment
 python experiments/run_main.py experiments/configs/grace.yaml
@@ -171,43 +202,45 @@ python experiments/run_main.py experiments/configs/grace.yaml
 python experiments/run_benchmark.py
 
 # attempt to reproduce the concurrent-race pattern against each real server
-python experiments/run_keycloak_validation.py
-python experiments/run_hydra_validation.py
+python experiments/run_server_scenarios.py keycloak 60 1
+python experiments/run_server_scenarios.py hydra 60 1
+python experiments/run_keycloak_validation.py 50 10    # k=10 headline run
+python experiments/run_keycloak_validation.py 100 2    # also 30 5, 10 20, 5 50
+python experiments/run_hydra_validation.py 50 10
 
 # grace-window takeover check against Hydra's own rotation_grace_period
 HYDRA_GRACE_PERIOD=5s docker compose up -d hydra
-python experiments/run_hydra_grace_validation.py 1 3 6
+python experiments/run_hydra_grace_validation.py --trials 20 1 3 6
 docker compose up -d hydra   # back to strict (0s) before running the test suite
 ```
 
-Results land in `results/<name>/` as CSV/JSON (git-ignored).
+Results land in `results/<name>/` as CSV/JSON.
 
 ## Team
 
 | Member | Responsibility |
 |---|---|
-| Albena Veseli | TBD |
-| Ardit Hyseni | TBD |
-| Erblin Syla | TBD |
+| Albena Veseli | Strategy implementations and tests, metrics module, performance benchmark, Hydra grace-window cross-check, paper figures/tables |
+| Ardit Hyseni | Project scaffolding, FastAPI service, main experiment runner, Keycloak integration and CVE-2026-1035 reproduction, Hydra compose setup |
+| Erblin Syla | Token store (in-memory/Redis), concurrency harness, grace-window strategy, Hydra client and validation |
 
 ## Scope and limitations
 
 This project assumes a refresh token has already been compromised and does
 not investigate how it was stolen (XSS, malware, device compromise are out
 of scope). All testing targets only the group's own local systems with
-synthetic clients. See `docs/proposal/proposal.tex` for the full discussion
-of limitations and safety constraints.
+synthetic clients. See the Limitations section of `docs/paper/paper.tex`
+for the full discussion.
 
 ## References
 
 - RFC 9700 — OAuth 2.0 Security Best Current Practice
 - RFC 6819 — OAuth 2.0 Threat Model and Security Considerations
-- CVE-2026-1035 — Keycloak refresh-token TOCTOU race condition (reproduction
-  attempted in `experiments/run_keycloak_validation.py`; see Project status)
+- CVE-2026-1035 — Keycloak refresh-token TOCTOU race condition (reproduced
+  in `experiments/run_keycloak_validation.py`; see Project status)
 
 Full reference list in the proposal/paper.
 
 ## License
 
-TBD (add a `LICENSE` file — MIT or similar is typical for a student research
-prototype, confirm with your course's requirements).
+MIT — see [`LICENSE`](LICENSE).

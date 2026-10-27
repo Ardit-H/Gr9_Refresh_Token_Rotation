@@ -4,6 +4,33 @@ services:
     ports:
       - "6379:6379"
 
+  # The project's own authentication service (static / naive / atomic /
+  # grace strategies), backed by Redis.
+  auth-service:
+    build: .
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+
+  # Test harness: runs the security experiment and writes to ./results.
+  # Only started on demand:
+  #   docker compose run --rm harness                                   (main.yaml)
+  #   docker compose run --rm harness experiments/configs/grace.yaml
+  harness:
+    build: .
+    profiles: ["harness"]
+    entrypoint: ["python", "experiments/run_main.py"]
+    command: ["experiments/configs/main.yaml"]
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./results:/app/results
+    depends_on:
+      - redis
+
   # Local Keycloak instance used to compare the project's own strategies
   # against a real authorization server (Phase 4 validation target,
   # CVE-2026-1035). Version pinned via KEYCLOAK_VERSION in .env.

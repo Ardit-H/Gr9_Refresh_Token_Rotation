@@ -59,6 +59,10 @@ def summarize(outcomes: Sequence[TrialOutcome]) -> dict:
         "attacker_success_rate": attacker["rate"],
         "attacker_success_ci95": (attacker["ci95_lo"], attacker["ci95_hi"]),
         "mean_attacker_successes": sum(o.attacker_successes for o in outcomes) / n,
+        # Access tokens obtained after compromise (scenario + follow-ups).
+        "mean_attacker_tokens": sum(o.attacker_tokens for o in outcomes) / n,
+        "attacker_persistent_rate": rate_with_ci(
+            sum(1 for o in outcomes if o.attacker_tokens > o.attacker_successes), n)["rate"],
         "reuse_detection_rate": detected["rate"],
         "reuse_detection_ci95": (detected["ci95_lo"], detected["ci95_hi"]),
         "family_fork_rate": forked["rate"],
