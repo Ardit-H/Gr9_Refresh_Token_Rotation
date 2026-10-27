@@ -27,25 +27,32 @@ refresh requests is implementation-dependent. We built a small authentication
 service implementing four refresh-token strategies --- static (no rotation),
 naive rotation (non-atomic read-then-write), atomic rotation
 (compare-and-set), and atomic rotation with a reuse grace window --- and a
-concurrency test harness that replays a stolen token sequentially,
-concurrently, and after a delay. We measured attacker success, reuse
-detection, token-family forking, and legitimate-session survival over 200
-trials per configuration (95\% Wilson confidence intervals reported
-throughout), and compared the controlled implementation against two real
-open-source authorization servers, Keycloak and Ory Hydra, running locally.
+concurrency test harness that runs four scenarios: client refreshes first,
+attacker refreshes first, both refresh concurrently, and the old token is
+replayed after a delay. We measured attacker success, access tokens
+obtained after compromise, reuse detection, token-family forking, and
+legitimate-session survival over 200 trials per configuration (95\% Wilson
+confidence intervals reported throughout), and ran the same four scenarios
+against two real open-source authorization servers, Keycloak and Ory
+Hydra, running locally.
 Naive rotation forks the token family in 100\% [98\%, 100\%] of concurrent
 races with \emph{zero} reuse alerts, a silent compromise that sequential
 testing alone would not reveal. Atomic rotation detects every race but
 always revokes the legitimate session along with the attacker's, since the
 two cannot be told apart. A reuse grace window reproduces the same silent
 takeover as naive rotation whenever the attacker replays inside the window.
-Against real servers, the concurrent race did not reproduce on a
-single-node Keycloak 26.2.5 instance (0/50 trials, 95\% CI [0\%, 7\%]),
-consistent with CVE-2026-1035's ``high'' attack-complexity rating, but
-reproduced reliably on Ory Hydra v26.2.0 (48/50 trials, 95\% CI [87\%,
-99\%]), which also revoked the legitimate client's session once a genuine
-reuse was detected outside its grace window --- mirroring our own atomic
-strategy's behavior.
+Against real servers, we reproduced CVE-2026-1035 on Keycloak 26.2.5: two
+simultaneous refreshes of one token both succeeded in 51\% [41\%, 61\%] of
+trials, and in almost every such fork both resulting token chains stayed
+valid, as with our naive strategy. The race window narrows as more requests compete
+(0\% [0\%, 7\%] at 10 concurrent requests). Ory Hydra v26.2.0 also
+accepted one token more than once under concurrency (98\% [90\%, 100\%] of
+trials at 10 concurrent requests). After such a fork, Hydra keeps at most
+the chain that is used first, so an attacker who refreshes again before
+the client can take over the session and lock the client out. With Hydra's own
+reuse grace period enabled,
+a replay inside the window succeeded silently in 100\% [84\%, 100\%] of
+trials, confirming the grace-window takeover on a real server.
 \end{abstract}
 
 \section{Introduction}
@@ -143,11 +150,13 @@ fresh token silently, with no alert and no revocation.
 
 A Python \texttt{asyncio}-based harness simulates a legitimate client and
 an attacker who holds a copy of the same stolen refresh token, and drives
-three scenarios:
+four scenarios:
 
 \begin{itemize}
-\item \textbf{Sequential replay}: one party refreshes, then the other
-presents the now-superseded token.
+\item \textbf{Sequential replay}: the legitimate client refreshes, then
+the attacker presents the now-superseded token.
+\item \textbf{Attacker-first replay}: the attacker refreshes first, and the
+legitimate client is the one presenting the superseded token.
 \item \textbf{Concurrent race}: both parties present the same token at the
 same instant, synchronized with an \texttt{asyncio.Event} gate so neither
 is systematically scheduled first.
@@ -160,11 +169,40 @@ For each trial we record whether the attacker obtained a valid access
 token, whether a reuse alert was raised, how many live tokens remain in
 the token family (more than one indicates \emph{forking}), whether the
 token family was revoked, and whether the legitimate client's session
-still works afterward. Every rate reported in this paper is accompanied by
+still works afterward. To count the access tokens obtained after
+compromise, the attacker then keeps refreshing with whatever token it
+holds, up to three more times; a static or forked token chain yields four
+tokens, a revoked one yields at most one. Every rate reported in this paper is accompanied by
 its 95\% Wilson score confidence interval \cite{wilson1927}, computed from
 the number of trials and successes rather than the normal approximation,
 since several of our rates sit at or near the 0\%/100\% boundary where the
 normal approximation is unreliable.
+
+\subsection{Pilot experiment}
+
+Before the main evaluation we ran a pilot (20 trials per configuration;
+static, naive and atomic rotation; sequential replay and concurrent race)
+to check that the harness reliably generates concurrent requests and
+records token states correctly. The pilot reproduced the expected
+signatures: naive rotation forked the family in 20/20 races, atomic
+rotation never forked and flagged every race, and the static baseline was
+never flagged. Each main experiment was then run on both the in-memory
+store and the Redis store; unless stated otherwise, the figures report the
+in-memory run, and the Redis run is used as a cross-check.
+
+\subsection{Experimental environment}
+
+All experiments ran on one laptop: Intel Core i7-9850H (6 cores, 12
+threads, 2.6\,GHz), 32\,GB RAM, Windows~11 Pro (build 26300), Docker
+Engine~28.3.2 (Docker Desktop, WSL\,2 backend, 12 vCPUs and 15.5\,GB
+assigned). The service and harness used Python~3.14.3 with FastAPI~0.141.1,
+Uvicorn~0.54.0, HTTPX~0.28.1 and redis-py~8.1.0; the token store was
+Redis~7 (\texttt{redis:7-alpine}). The service, harness and comparison
+servers are all defined in the project's \texttt{docker-compose.yml}; the
+containerized service and harness use Python~3.12. All traffic stayed on
+the local machine: the harness talked to the servers over
+\texttt{localhost} and Docker's default bridge network, with no added
+network delay or packet loss.
 
 \subsection{Real-server comparison}
 
@@ -181,7 +219,22 @@ mechanism a real consent application uses, invoked directly rather than
 through a browser --- to obtain and refresh tokens for a single test
 subject on our own local instance.
 
-\section{Results}
+Against both servers we ran the same four two-party scenarios as in the
+controlled harness (60 trials each; replay delay 1\,s). A real server
+does not tell the caller that it detected reuse, so we observe detection
+by its effect: after the stale token is presented, we check whether the
+successor that \emph{did} rotate still works. If it no longer works, the
+server revoked the session, which is the reuse response RFC~9700
+recommends. We count attacker tokens with the same three follow-up
+refreshes as above. Separately, to see how the race depends on load, we
+sent $k$ simultaneous refreshes of one token for
+$k \in \{2, 5, 10, 20, 50\}$ (Keycloak) and $k = 10$ (Hydra), and
+counted trials where more than one succeeded. Finally, we repeated the
+delayed-replay scenario against Hydra with its
+\texttt{rotation\_grace\_period} set to 5\,s, at delays of 1, 3 and 6\,s
+(20 trials each).
+
+\section{Results}\label{sec:results}
 
 \subsection{Controlled implementation}
 
@@ -203,19 +256,37 @@ strategies in every configuration tested.
 Static tokens are trivially and permanently exploitable: the attacker
 succeeds every time and nothing is ever flagged. Naive rotation correctly
 detects a \emph{sequential} replay (100\% [98\%, 100\%] detection, median
-latency $\approx$25\,\textmu s) but under a true concurrent race it forks
+latency $\approx$27\,\textmu s) but under a true concurrent race it forks
 the token family in 100\% [98\%, 100\%] of trials with \emph{zero} reuse
 alerts --- both the attacker and the legitimate client receive a valid,
 independent successor token, and the compromise is completely silent.
 Atomic rotation detects every race (100\% [98\%, 100\%]) and never forks;
-the attacker wins the race in 51.5\% [45\%, 58\%] of trials (consistent
+the attacker wins the race in 54\% [47\%, 60\%] of trials (consistent
 with the 50\% expected from randomized start order --- the 95\% CI
 comfortably includes 50\%), but the loser --- whichever party it is --- is
 immediately detected and the whole token family, including the legitimate
 client's side, is revoked. Widening naive rotation's internal check/use gap
 from 0 to 10\,ms had no additional effect on the race outcome: it was
-already forking in 100\% of trials at zero added delay, since ordinary
-\texttt{asyncio} scheduling is enough to open the window.
+already forking in 100\% of trials at zero added delay. In the in-memory
+store this is because the strategy yields to the event loop once between
+check and write (\texttt{asyncio.sleep(0)}); with the Redis store, no
+artificial yield is needed, since the network round trip between the read
+and the write opens the window naturally, and the result is the same
+(100\% fork). The forked chains are durable: in every naive race the
+attacker went on to obtain all four access tokens (one in the race plus
+three follow-ups), as with static tokens. Under atomic rotation the
+attacker obtained 0.54 tokens on average, never more than the one from
+the race itself.
+
+The two remaining sequential scenarios behave as expected for every
+strategy. When the \emph{attacker} refreshes first, both rotation
+strategies flag the client's subsequent use of the stale token in 100\%
+[98\%, 100\%] of trials, but the attacker has by then already obtained a
+token in every trial, and the resulting family revocation locks out the
+legitimate client. Detection therefore always fires, but only after the
+attacker has received one access token. A replay of the old token 100\,ms after a
+successful rotation is detected in 100\% of trials by both rotation
+strategies, while static tokens accept it every time.
 
 \subsection{Grace window (secondary research question)}
 
@@ -238,6 +309,11 @@ detects it in 100\% of trials once the delay exceeds the window
 (100\,ms). This directly confirms the secondary research question: a
 configured grace window enables a silent token-family takeover, with no
 reuse alert raised, for any attacker fast enough to replay within it.
+The Redis cross-check agrees at 10\,ms and 100\,ms. At 30\,ms the rate
+drops to 79\% [70\%, 86\%], because each Redis round trip uses up part of
+the 50\,ms window and the effective window is therefore shorter. With the
+Redis store, the atomic race was won by the attacker in 53\% [46\%, 59\%] of
+trials, again with 100\% detection and no forking.
 
 \subsection{Performance}
 
@@ -296,32 +372,64 @@ dominated by I/O to the token store rather than CPU-bound computation.
 
 \subsection{Real-server comparison}
 
-Table~\ref{tab:real-server} reports the concurrent-race outcome against
-both real authorization servers, using matched parameters (50 trials,
-10 concurrent refreshes of the same token per trial).
+Table~\ref{tab:server-scenarios} reports the four scenarios against both
+servers, and Table~\ref{tab:real-server} the race at different levels of
+concurrency.
+
+\input{tables/server_scenarios.tex}
 
 \input{tables/real_server_comparison.tex}
 
-Both servers correctly reject a sequential replay of a stale token
-(HTTP 400 \texttt{invalid\_grant}). Under the concurrent race, however,
-the two servers diverge sharply. Keycloak 26.2.5, configured exactly as
-described for CVE-2026-1035 (strict rotation, \texttt{refreshTokenMaxReuse=0}),
-did not fork in any of 50 trials (95\% CI [0\%, 7\%]); a smaller,
-exploratory run at concurrency levels up to 50 simultaneous requests for
-the same token (30/10/5 trials at concurrency 2/20/50) showed the same
-pattern, each trial deterministically producing exactly one HTTP~200 and
-the rest HTTP~400. Ory Hydra, by contrast, forked in 48 of 50 trials (96\%,
-95\% CI [87\%, 99\%]) --- a confidence interval clearly separated from
-Keycloak's --- typically with 2--3 of 10 concurrent requests succeeding
-rather than all 10, indicating a real but narrow race window rather than
-an absence of any single-use enforcement.
-We also cross-checked the grace-window question against Hydra's own
-\texttt{rotation\_grace\_period} setting (configured to 5\,s): a replay at
-1\,s or 3\,s after rotation succeeded silently with no error, exactly
-reproducing the silent takeover observed in our own grace-window strategy;
-a replay at 6\,s (outside the window) was rejected, and --- notably ---
-also revoked the legitimate client's already-rotated token, the same
-trade-off we observed in our own atomic strategy.
+\emph{Sequential scenarios.} Both servers behave like our atomic
+strategy. A stale token presented after a successful rotation (client
+first, or 1\,s later) is rejected with HTTP~400 \texttt{invalid\_grant}
+in 100\% [94\%, 100\%] of trials, and the reuse also kills the client's
+freshly rotated token: the session is revoked. When the attacker
+refreshes first, the attacker always gets one access token, the client's
+later attempt is rejected, and the attacker's new token is then revoked
+too, so the attacker obtains exactly one token and the client loses its
+session.
+
+\emph{Concurrent race, Keycloak.} Keycloak 26.2.5, configured as
+described for CVE-2026-1035 (strict rotation,
+\texttt{refreshTokenMaxReuse=0}), let two simultaneous refreshes of one
+token both succeed in 51\% [41\%, 61\%] of 100 trials. This reproduces
+the CVE. In the two-party scenario, 48\% [36\%, 61\%] of races forked,
+and in almost every forked trial both chains stayed valid: afterwards the
+attacker could still refresh in 27 of 29 forks and the client in 26 of
+29, whichever of them refreshed first. On average, the attacker obtained 2.05
+access tokens per race. This is the same silent, durable fork as our
+naive strategy. In the other trials,
+exactly one request won and the server revoked the session, like our
+atomic strategy. The race window narrows as more requests compete: the
+fork rate falls to 7\% [2\%, 21\%] at 5 simultaneous requests and 0\% at
+10 or more. A likely explanation is that, under heavier contention, the
+requests are serialized by database locking before they reach the
+vulnerable check. Under this pattern, the attack is most effective in
+exactly the realistic case of one attacker racing one client.
+
+\emph{Concurrent race, Hydra.} Ory Hydra accepted one token more than
+once in 98\% [90\%, 100\%] of trials at 10 concurrent requests (typically
+2--3 of the 10 succeeded), and in 100\% [94\%, 100\%] of two-party races.
+Unlike Keycloak, both chains never survive together. Because the order in
+which the two parties refresh again is randomized, we can see that the
+chain used \emph{first} after the fork survived in 26 of 60 trials (43\%),
+and the other chain was revoked in every trial; in the remaining trials
+both were revoked. When the attacker refreshed first, the attacker kept a
+working chain in 13 of 24 trials and the client was locked out in all 24.
+Hydra thus appears to detect the double use only when the second chain is
+used, and by then it may revoke the legitimate client instead of the
+attacker. Our first version of this measurement always probed the client
+first and therefore wrongly suggested that the attacker's chain always
+dies; randomizing the order corrected this.
+
+\emph{Grace window, Hydra.} With \texttt{rotation\_grace\_period=5s},
+a replay 1\,s or 3\,s after rotation succeeded silently in 100\% [84\%,
+100\%] of 20 trials each, and the client's session survived, exactly
+reproducing the silent takeover of our grace-window strategy. A replay
+at 6\,s was rejected in 100\% of trials and revoked the client's
+already-rotated token as well (client survival 0\% [0\%, 16\%]), the
+same trade-off as our atomic strategy.
 
 \section{Discussion}
 
@@ -337,7 +445,7 @@ logs or alerts.
 
 The atomic strategy's trade-off is equally important to state plainly:
 making reuse detection reliable under concurrency does not mean the
-attacker never wins the race ($\approx$52\% of the time, they do, since the
+attacker never wins the race ($\approx$54\% of the time, they do, since the
 server cannot distinguish the two parties by anything other than arrival
 order), but it does mean the loser is always detected and the family is
 always revoked --- including the legitimate client's side. This matches
@@ -347,19 +455,36 @@ recommended response in RFC~9700, but it means atomic rotation alone
 converts an attacker's successful race into a denial-of-service against
 the legitimate user, not into a silent, cost-free defense.
 
-On CVE-2026-1035, our inability to reproduce the race against a
-single-node Keycloak~26.2.5 dev instance, despite replicating the exact
-configuration described in the advisory, is itself informative rather
-than a null result. Red Hat's own CVSS vector for this CVE rates attack
-complexity as ``high,'' and our result is consistent with that: the
-window in Keycloak's implementation appears to be closed in practice
-under ordinary HTTP-level concurrency on a single node, likely due to
-locking introduced by its embedded database transaction, and may require
-a clustered or cache-backed deployment to open. Ory Hydra's reliable,
-bounded-fraction fork under the identical test methodology shows our
-harness and methodology \emph{can} detect a genuine TOCTOU race over real
-HTTP when one exists, which supports treating the Keycloak result as a
-genuine negative rather than a harness limitation.
+Reproducing CVE-2026-1035 validates the harness, as the proposal
+intended: the same two-party race that exposes our naive strategy also
+exposes a known real-world TOCTOU flaw, over ordinary HTTP on a single
+node. The result also shows why the outcome must be reported as a rate
+with a confidence interval rather than as a single pass or fail. The race
+succeeds in roughly half of two-request trials, and a test that sends
+many requests at once (10 or more) would miss it entirely and wrongly
+conclude that the server is safe. Red Hat rates the CVE's attack
+complexity as ``high''; our data suggest that, for an attacker who already
+holds the token, the timing is easier to hit than that rating implies.
+The two real servers also fail in different ways. Keycloak's fork is
+durable: like naive rotation, both the attacker and the client keep a
+working chain and nothing is flagged. Hydra's fork resolves to whichever
+party refreshes next. This is a race the attacker can win simply by
+refreshing immediately, which turns the double use into a session
+takeover in which the legitimate client, not the attacker, is locked out.
+Both break single-use enforcement, and in both the attacker can end up
+with lasting access.
+
+\subsection{Responsible disclosure}
+
+The Ory Hydra result (Sec.~\ref{sec:results}) shows that a single refresh
+token can be exchanged more than once under concurrency, even with strict
+rotation, and that an attacker who refreshes first after the race can keep
+the session while the legitimate client is revoked. In line with the project proposal, we treat this as a potential
+defect. We will report it privately to the Ory maintainers through their
+security policy before sharing the result outside the course, and will not
+publish exploit details until they have had time to respond. At the time
+of writing, the report has not yet been submitted. The Keycloak
+behaviour concerns an already-published CVE and needs no new report.
 
 \section{Limitations}
 
@@ -399,12 +524,13 @@ of effectively zero over the naive implementation. A reuse grace window,
 intended to tolerate lost responses, reproduces the same silent-takeover
 failure mode whenever an attacker can replay within the window, both in
 our own implementation and against Ory Hydra's equivalent setting.
-Comparing the same methodology against two real authorization servers
-showed that the concurrent race does not reproduce against a single-node
-Keycloak~26.2.5 instance, consistent with CVE-2026-1035's documented high
-attack complexity, but does reproduce reliably against Ory Hydra, which
-also revokes the legitimate session on detected reuse --- the same
-security/availability trade-off observed in our own atomic strategy. These
+Running the same scenarios against two real authorization servers
+reproduced CVE-2026-1035 on Keycloak~26.2.5 (51\% of two-request races
+forked, with both chains staying valid), but only at low concurrency, and
+showed a double use on Ory Hydra in which whichever party refreshes next
+keeps the session, so an attacker can take it over. On both servers, a detected
+sequential reuse revoked the legitimate session as well, the same
+security/availability trade-off as our own atomic strategy. These
 results support preferring atomic, compare-and-set token-state transitions
 over read-then-write rotation, and avoiding reuse grace windows unless
 their silent-takeover exposure is explicitly accepted.

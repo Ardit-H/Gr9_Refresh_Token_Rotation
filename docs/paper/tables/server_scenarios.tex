@@ -1,0 +1,20 @@
+\begin{table*}[htbp]
+\centering
+\caption{The four scenarios against real servers (two parties, 60 trials each; 95\% Wilson CI). \emph{Revoked}: the successor that did rotate stopped working after the stale token was presented, i.e.\ reuse was detected. \emph{Attacker tokens}: mean access tokens obtained, including up to three follow-up refreshes. The client and attacker are probed afterwards in random order.}
+\label{tab:server-scenarios}
+\begin{tabular}{llcccccc}
+\toprule
+Server & Scenario & Attacker success & Forked & Revoked & Client survives & Attacker survives & Attacker tokens \\
+\midrule
+Keycloak & Client first & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 0.00 \\
+Keycloak & Attacker first & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 1.00 \\
+Keycloak & Concurrent & 70\% [57\%, 80\%] & 48\% [36\%, 61\%] & 52\% [39\%, 64\%] & 43\% [32\%, 56\%] & 45\% [33\%, 58\%] & 2.05 \\
+Keycloak & Delayed (1\,s) & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 0.00 \\
+\midrule
+Hydra & Client first & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 0.00 \\
+Hydra & Attacker first & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 1.00 \\
+Hydra & Concurrent & 100\% [94\%, 100\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 22\% [13\%, 34\%] & 22\% [13\%, 34\%] & 1.65 \\
+Hydra & Delayed (1\,s) & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 100\% [94\%, 100\%] & 0\% [0\%, 6\%] & 0\% [0\%, 6\%] & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

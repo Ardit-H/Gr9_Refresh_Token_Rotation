@@ -11,6 +11,7 @@ import csv
 import dataclasses
 import functools
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -36,7 +37,8 @@ def make_store(cfg: dict) -> tuple[TokenStore, object | None]:
     if cfg.get("backend", "memory") == "redis":
         import redis.asyncio as aioredis
 
-        client = aioredis.from_url(cfg["redis_url"], decode_responses=True)
+        url = os.environ.get("REDIS_URL", cfg["redis_url"])  # override inside Docker
+        client = aioredis.from_url(url, decode_responses=True)
         return RedisTokenStore(client, prefix="gr9exp"), client
     return InMemoryTokenStore(), None
 

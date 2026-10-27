@@ -1,0 +1,181 @@
+{
+  "server": "hydra",
+  "delay_s": 1.0,
+  "follow_ups": 3,
+  "sequential_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 0.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  },
+  "attacker_first_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 1.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  },
+  "concurrent_race": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "forked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.21666666666666667,
+      "ci95_lo": 0.13122921046407013,
+      "ci95_hi": 0.3362026834734252,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.21666666666666667,
+      "ci95_lo": 0.13122921046407013,
+      "ci95_hi": 0.3362026834734252,
+      "n": 60
+    },
+    "mean_attacker_tokens": 1.65,
+    "forked_attacker_first=True": {
+      "n": 24,
+      "attacker_survived": 13,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 36,
+      "attacker_survived": 0,
+      "legit_survived": 13
+    }
+  },
+  "delayed_replay": {
+    "trials": 60,
+    "attacker_ok": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "forked": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "revoked": {
+      "rate": 1.0,
+      "ci95_lo": 0.939826069522067,
+      "ci95_hi": 0.9999999999999998,
+      "n": 60
+    },
+    "legit_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "attacker_survived": {
+      "rate": 0.0,
+      "ci95_lo": 0.0,
+      "ci95_hi": 0.060173930477932895,
+      "n": 60
+    },
+    "mean_attacker_tokens": 0.0,
+    "forked_attacker_first=True": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    },
+    "forked_attacker_first=False": {
+      "n": 0,
+      "attacker_survived": 0,
+      "legit_survived": 0
+    }
+  }
+}

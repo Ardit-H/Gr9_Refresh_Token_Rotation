@@ -51,14 +51,25 @@ async def one_trial(client: KeycloakClient, concurrency: int) -> dict:
     }
 
 
+async def sequential_replay_check(client: KeycloakClient) -> dict:
+    login = await client.login()
+    first = await client.refresh(login.refresh_token)
+    replay = await client.refresh(login.refresh_token)  # stale token reused
+    return {"first_ok": first.ok, "replay_ok": replay.ok, "replay_status": replay.status}
+
+
 async def main() -> None:
     trials = int(sys.argv[1]) if len(sys.argv) > 1 else 50
-    concurrency = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+    concurrency = int(sys.argv[2]) if len(sys.argv) > 2 else 10
 
     client = KeycloakClient()
     try:
         print("Waiting for Keycloak realm...")
         await client.wait_ready()
+
+        seq = await sequential_replay_check(client)
+        print(f"sequential replay: first_ok={seq['first_ok']} "
+              f"replay_ok={seq['replay_ok']} replay_status={seq['replay_status']}")
 
         rows = [await one_trial(client, concurrency) for _ in range(trials)]
     finally:
@@ -70,11 +81,13 @@ async def main() -> None:
     print(f"family forked (>1 success): {forked}/{trials} "
           f"({forked / trials:.0%}, 95% CI [{lo:.0%}, {hi:.0%}])")
 
-    out = ROOT / "results" / "keycloak_validation"
+    # Concurrency 10 is the headline run; other levels go to their own folder.
+    out = ROOT / "results" / ("keycloak_validation" if concurrency == 10 else f"keycloak_validation_c{concurrency}")
     out.mkdir(parents=True, exist_ok=True)
     (out / "trials.json").write_text(json.dumps(
         {"trials": trials, "concurrency": concurrency, "forked": forked,
-         "fork_rate": forked / trials, "ci95_lo": lo, "ci95_hi": hi, "race": rows},
+         "fork_rate": forked / trials, "ci95_lo": lo, "ci95_hi": hi,
+         "sequential_replay": seq, "race": rows},
         indent=2,
     ))
     print(f"Wrote {out / 'trials.json'}")

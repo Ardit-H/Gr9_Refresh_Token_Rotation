@@ -9,8 +9,10 @@ Requires Hydra to be started with a non-zero grace period, e.g.:
     HYDRA_GRACE_PERIOD=5s docker compose up -d hydra
 (0s, the compose default, is strict rotation and should reject every delay.)
 
-Usage:  python experiments/run_hydra_grace_validation.py [delays...]
-Delays are in seconds, e.g.: python experiments/run_hydra_grace_validation.py 1 3 6
+Usage:  python experiments/run_hydra_grace_validation.py [--trials N] [delays...]
+Delays are in seconds, e.g.:
+    python experiments/run_hydra_grace_validation.py --trials 20 1 3 6
+Each delay is repeated N times (default 20); rates get a 95% Wilson CI.
 """
 
 from __future__ import annotations
@@ -20,6 +22,7 @@ import json
 import sys
 from pathlib import Path
 
+from gr9_refresh_token_rotation.metrics.aggregate import rate_with_ci
 from gr9_refresh_token_rotation.servers.hydra_client import HydraClient
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,24 +50,41 @@ async def delayed_replay(client: HydraClient, delay: float) -> dict:
 
 
 async def main() -> None:
-    delays = [float(x) for x in sys.argv[1:]] or [0.5, 2.0, 5.0, 8.0]
+    args = sys.argv[1:]
+    trials = 20
+    if "--trials" in args:
+        k = args.index("--trials")
+        trials = int(args[k + 1])
+        del args[k:k + 2]
+    delays = [float(x) for x in args] or [1.0, 3.0, 6.0]
 
     client = HydraClient()
     try:
         print("Waiting for Hydra...")
         await client.wait_ready()
-        rows = [await delayed_replay(client, d) for d in delays]
+        rows = []
+        for d in delays:
+            for _ in range(trials):
+                rows.append(await delayed_replay(client, d))
     finally:
         await client.aclose()
 
-    print(f"\n{'delay (s)':>10}  {'attacker ok':>12}  {'legit survived':>15}")
-    for r in rows:
-        print(f"{r['delay_s']:>10}  {str(r['attacker_succeeded']):>12}  {str(r['legit_survived']):>15}")
+    summary = []
+    print(f"\n{'delay (s)':>10}  {'silent takeover':>24}  {'legit survived':>24}")
+    for d in delays:
+        g = [r for r in rows if r["delay_s"] == d]
+        att = rate_with_ci(sum(r["attacker_succeeded"] for r in g), len(g))
+        surv = rate_with_ci(sum(r["legit_survived"] for r in g), len(g))
+        summary.append({"delay_s": d, "trials": len(g),
+                        "silent_takeover": att, "legit_survived": surv})
+        print(f"{d:>10}  {att['rate']:>7.0%} [{att['ci95_lo']:.0%}, {att['ci95_hi']:.0%}]"
+              f"       {surv['rate']:>7.0%} [{surv['ci95_lo']:.0%}, {surv['ci95_hi']:.0%}]")
 
     out = ROOT / "results" / "hydra_grace_validation"
     out.mkdir(parents=True, exist_ok=True)
     (out / "trials.json").write_text(json.dumps(rows, indent=2))
-    print(f"\nWrote {out / 'trials.json'}")
+    (out / "summary.json").write_text(json.dumps(summary, indent=2))
+    print(f"\nWrote {out}")
 
 
 if __name__ == "__main__":

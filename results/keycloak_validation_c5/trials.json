@@ -1,0 +1,345 @@
+{
+  "trials": 30,
+  "concurrency": 5,
+  "forked": 2,
+  "fork_rate": 0.06666666666666667,
+  "ci95_lo": 0.01847663532769335,
+  "ci95_hi": 0.2132381772107209,
+  "sequential_replay": {
+    "first_ok": true,
+    "replay_ok": false,
+    "replay_status": 400
+  },
+  "race": [
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400,
+        400,
+        400,
+        400
+      ]
+    }
+  ]
+}

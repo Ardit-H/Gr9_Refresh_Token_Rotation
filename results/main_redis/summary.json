@@ -2,11 +2,67 @@
   "static/sequential_replay": {
     "trials": 200,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "static/attacker_first_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
@@ -14,11 +70,67 @@
   "static/concurrent_race": {
     "trials": 200,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "detection_latency_p50_s": null,
+    "detection_latency_p95_s": null,
+    "detection_latency_p99_s": null
+  },
+  "static/delayed_replay@0.1": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
+    "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
@@ -26,97 +138,545 @@
   "naive_rotation@rw=0/sequential_replay": {
     "trials": 200,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.005760899977758527,
-    "detection_latency_p95_s": 0.007364799967035651,
-    "detection_latency_p99_s": 0.00856690015643835
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.0043530999682843685,
+    "detection_latency_p95_s": 0.008498999988660216,
+    "detection_latency_p99_s": 0.010856699896976352
+  },
+  "naive_rotation@rw=0/attacker_first_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 1.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.004303700057789683,
+    "detection_latency_p95_s": 0.006728400010615587,
+    "detection_latency_p99_s": 0.007843900006264448
   },
   "naive_rotation@rw=0/concurrent_race": {
     "trials": 200,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0/delayed_replay@0.1": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.11811599996872246,
+    "detection_latency_p95_s": 0.12594719999469817,
+    "detection_latency_p99_s": 0.13142249989323318
   },
   "naive_rotation@rw=0.001/sequential_replay": {
     "trials": 200,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.009772300021722913,
-    "detection_latency_p95_s": 0.023295699851587415,
-    "detection_latency_p99_s": 0.02511940011754632
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.01077539985999465,
+    "detection_latency_p95_s": 0.022208699956536293,
+    "detection_latency_p99_s": 0.024021900026127696
+  },
+  "naive_rotation@rw=0.001/attacker_first_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 1.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.010255999863147736,
+    "detection_latency_p95_s": 0.022456600097939372,
+    "detection_latency_p99_s": 0.023296500090509653
   },
   "naive_rotation@rw=0.001/concurrent_race": {
     "trials": 200,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
+  },
+  "naive_rotation@rw=0.001/delayed_replay@0.1": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.12303100014105439,
+    "detection_latency_p95_s": 0.1350217000581324,
+    "detection_latency_p99_s": 0.14476200006902218
   },
   "naive_rotation@rw=0.01/sequential_replay": {
     "trials": 200,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.025499199982732534,
-    "detection_latency_p95_s": 0.03806310007348657,
-    "detection_latency_p99_s": 0.04409539978951216
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.025373100070282817,
+    "detection_latency_p95_s": 0.02748230006545782,
+    "detection_latency_p99_s": 0.03309210017323494
+  },
+  "naive_rotation@rw=0.01/attacker_first_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 1.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.024946099845692515,
+    "detection_latency_p95_s": 0.03370689996518195,
+    "detection_latency_p99_s": 0.03766839997842908
   },
   "naive_rotation@rw=0.01/concurrent_race": {
     "trials": 200,
     "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 4.0,
+    "attacker_persistent_rate": 1.0,
     "reuse_detection_rate": 0.0,
+    "reuse_detection_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "family_fork_rate": 1.0,
+    "family_fork_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "silent_compromise_rate": 1.0,
+    "silent_compromise_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "legit_session_survival_rate": 1.0,
+    "legit_session_survival_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "detection_latency_p50_s": null,
     "detection_latency_p95_s": null,
     "detection_latency_p99_s": null
   },
+  "naive_rotation@rw=0.01/delayed_replay@0.1": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.1342360998969525,
+    "detection_latency_p95_s": 0.14357640012167394,
+    "detection_latency_p99_s": 0.15002720011398196
+  },
   "atomic_rotation/sequential_replay": {
     "trials": 200,
     "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.006169099826365709,
-    "detection_latency_p95_s": 0.009450000012293458,
-    "detection_latency_p99_s": 0.010600200155749917
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.0045155000407248735,
+    "detection_latency_p95_s": 0.005965499905869365,
+    "detection_latency_p99_s": 0.009154299972578883
+  },
+  "atomic_rotation/attacker_first_replay": {
+    "trials": 200,
+    "attacker_success_rate": 1.0,
+    "attacker_success_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "mean_attacker_successes": 1.0,
+    "mean_attacker_tokens": 1.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.004761500051245093,
+    "detection_latency_p95_s": 0.007004100130870938,
+    "detection_latency_p99_s": 0.008841900154948235
   },
   "atomic_rotation/concurrent_race": {
     "trials": 200,
-    "attacker_success_rate": 0.0,
-    "mean_attacker_successes": 0.0,
+    "attacker_success_rate": 0.525,
+    "attacker_success_ci95": [
+      0.45597270710507004,
+      0.593084992599014
+    ],
+    "mean_attacker_successes": 0.525,
+    "mean_attacker_tokens": 0.525,
+    "attacker_persistent_rate": 0.0,
     "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
     "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
     "legit_session_survival_rate": 0.0,
-    "detection_latency_p50_s": 0.0032418998889625072,
-    "detection_latency_p95_s": 0.0038256000261753798,
-    "detection_latency_p99_s": 0.004018800100311637
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.0023192998487502337,
+    "detection_latency_p95_s": 0.002957800170406699,
+    "detection_latency_p99_s": 0.003450999967753887
+  },
+  "atomic_rotation/delayed_replay@0.1": {
+    "trials": 200,
+    "attacker_success_rate": 0.0,
+    "attacker_success_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "mean_attacker_successes": 0.0,
+    "mean_attacker_tokens": 0.0,
+    "attacker_persistent_rate": 0.0,
+    "reuse_detection_rate": 1.0,
+    "reuse_detection_ci95": [
+      0.9811539940816792,
+      1.0
+    ],
+    "family_fork_rate": 0.0,
+    "family_fork_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "silent_compromise_rate": 0.0,
+    "silent_compromise_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "legit_session_survival_rate": 0.0,
+    "legit_session_survival_ci95": [
+      0.0,
+      0.018846005918320894
+    ],
+    "detection_latency_p50_s": 0.11936259991489351,
+    "detection_latency_p95_s": 0.12809909996576607,
+    "detection_latency_p99_s": 0.13049970008432865
   }
 }

@@ -5,6 +5,11 @@
   "fork_rate": 0.0,
   "ci95_lo": 0.0,
   "ci95_hi": 0.07135003417431873,
+  "sequential_replay": {
+    "first_ok": true,
+    "replay_ok": false,
+    "replay_status": 400
+  },
   "race": [
     {
       "successes": 1,

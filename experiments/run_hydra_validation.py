@@ -54,8 +54,8 @@ async def sequential_replay_check(client: HydraClient) -> dict:
 
 
 async def main() -> None:
-    trials = int(sys.argv[1]) if len(sys.argv) > 1 else 20
-    concurrency = int(sys.argv[2]) if len(sys.argv) > 2 else 2
+    trials = int(sys.argv[1]) if len(sys.argv) > 1 else 50
+    concurrency = int(sys.argv[2]) if len(sys.argv) > 2 else 10
 
     client = HydraClient()
     try:
@@ -76,7 +76,8 @@ async def main() -> None:
     print(f"family forked (>1 success): {forked}/{trials} "
           f"({forked / trials:.0%}, 95% CI [{lo:.0%}, {hi:.0%}])")
 
-    out = ROOT / "results" / "hydra_validation"
+    # Concurrency 10 is the headline run; other levels go to their own folder.
+    out = ROOT / "results" / ("hydra_validation" if concurrency == 10 else f"hydra_validation_c{concurrency}")
     out.mkdir(parents=True, exist_ok=True)
     (out / "trials.json").write_text(json.dumps(
         {"trials": trials, "concurrency": concurrency, "forked": forked,

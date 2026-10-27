@@ -1,0 +1,815 @@
+{
+  "trials": 100,
+  "concurrency": 2,
+  "forked": 51,
+  "fork_rate": 0.51,
+  "ci95_lo": 0.4134784047743415,
+  "ci95_hi": 0.6057816990761385,
+  "sequential_replay": {
+    "first_ok": true,
+    "replay_ok": false,
+    "replay_status": 400
+  },
+  "race": [
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        400,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        400,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        400,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        400,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        400,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    },
+    {
+      "successes": 1,
+      "forked": false,
+      "statuses": [
+        200,
+        400
+      ]
+    },
+    {
+      "successes": 2,
+      "forked": true,
+      "statuses": [
+        200,
+        200
+      ]
+    }
+  ]
+}
