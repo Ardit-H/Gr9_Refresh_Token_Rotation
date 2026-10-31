@@ -1,7 +1,7 @@
 # Gr9 — Refresh-Token Lifecycle Security Under Concurrent Compromise
 
 Information Security seminar project (Group 9) investigating how different
-OAuth 2.0 / JWT refresh-token rotation strategies behave under **concurrent**
+OAuth 2.0 refresh-token rotation strategies behave under **concurrent**
 refresh requests, and what that means for reuse detection, legitimate-session
 survival, and performance after a token has been compromised.
 
